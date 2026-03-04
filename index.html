@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,6 +133,174 @@
             z-index: -1;
             pointer-events: none;
         }
+
+        /* Support Chat Widget */
+        .support-panel {
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 12px);
+            width: min(26rem, calc(100vw - 1.5rem));
+            height: min(36rem, calc(100vh - 8.5rem));
+            transition: opacity 0.28s ease, transform 0.28s ease;
+            transform-origin: bottom right;
+        }
+
+        .support-panel--hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px) scale(0.98);
+        }
+
+        .support-panel--visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .support-messages {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(245, 158, 11, 0.6) rgba(10, 10, 10, 0.2);
+        }
+
+        .support-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .support-messages::-webkit-scrollbar-thumb {
+            background: rgba(245, 158, 11, 0.55);
+            border-radius: 8px;
+        }
+
+        /* FAQ Button Style (adapted from Uiverse.io by vinodjangid07) */
+        .faq-button {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ffe53b;
+            background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 12px rgba(0, 0, 0, 0.22);
+            position: relative;
+        }
+
+        .faq-button svg {
+            height: 1.8em;
+            width: 1.8em;
+            fill: white;
+        }
+
+        .faq-button:hover svg {
+            animation: jello-vertical 0.7s both;
+        }
+
+        @keyframes jello-vertical {
+            0% { transform: scale3d(1, 1, 1); }
+            30% { transform: scale3d(0.75, 1.25, 1); }
+            40% { transform: scale3d(1.25, 0.75, 1); }
+            50% { transform: scale3d(0.85, 1.15, 1); }
+            65% { transform: scale3d(1.05, 0.95, 1); }
+            75% { transform: scale3d(0.95, 1.05, 1); }
+            100% { transform: scale3d(1, 1, 1); }
+        }
+
+        .tooltip {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+            opacity: 0;
+            background-color: #ffe53b;
+            background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition-duration: 0.2s;
+            pointer-events: none;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+            white-space: nowrap;
+            font-weight: 700;
+        }
+
+        .tooltip::before {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #ff2525;
+            transform: rotate(45deg);
+            bottom: -15%;
+            transition-duration: 0.3s;
+        }
+
+        .faq-button:hover .tooltip {
+            top: -44px;
+            opacity: 1;
+            transition-duration: 0.3s;
+        }
+
+        .support-anchor {
+            position: fixed;
+            right: max(16px, env(safe-area-inset-right));
+            bottom: max(16px, env(safe-area-inset-bottom));
+            z-index: 70;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .support-anchor > * {
+            pointer-events: auto;
+        }
+
+        .support-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-button--telegram {
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .support-anchor {
+                right: max(8px, env(safe-area-inset-right));
+                bottom: max(8px, env(safe-area-inset-bottom));
+            }
+
+            .support-panel {
+                width: min(calc(100vw - 1rem), 23.5rem);
+                height: min(72vh, 31rem);
+                bottom: calc(100% + 10px);
+                border-radius: 0.9rem;
+            }
+
+            .faq-button {
+                width: 54px;
+                height: 54px;
+            }
+
+            .faq-button svg {
+                width: 1.6em;
+                height: 1.6em;
+            }
+
+            .support-actions {
+                gap: 8px;
+            }
+
+            .tooltip {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="antialiased relative">
@@ -170,19 +338,14 @@
 
             <div class="flex items-center space-x-4 md:space-x-6">
                 <!-- Language Switcher -->
-                <div class="relative group cursor-pointer">
-                    <div class="flex items-center space-x-1 text-sm font-bold text-gray-300 hover:text-dajinniao-orange transition-colors uppercase">
-                        <span id="current-lang-display">English</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <div class="absolute right-0 mt-4 w-36 glass-panel border border-dajinniao-orange/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden transform origin-top-right scale-95 group-hover:scale-100">
-                        <div class="flex flex-col">
-                            <div onclick="switchLanguage('en')" class="px-4 py-3 hover:bg-dajinniao-orange/20 text-sm font-bold text-white cursor-pointer transition-colors text-center border-b border-white/5">English</div>
-                            <div onclick="switchLanguage('zh-CN')" class="px-4 py-3 hover:bg-dajinniao-orange/20 text-sm font-bold text-white cursor-pointer transition-colors text-center border-b border-white/5">简体中文</div>
-                            <div onclick="switchLanguage('zh-TW')" class="px-4 py-3 hover:bg-dajinniao-orange/20 text-sm font-bold text-white cursor-pointer transition-colors text-center border-b border-white/5">繁體中文</div>
-                            <div onclick="switchLanguage('vi')" class="px-4 py-3 hover:bg-dajinniao-orange/20 text-sm font-bold text-white cursor-pointer transition-colors text-center">Tiếng Việt</div>
-                        </div>
-                    </div>
+                <div id="langSwitcher" class="flex items-center gap-2">
+                    <span id="current-lang-display" class="text-sm font-bold text-gray-300">LANGUAGE</span>
+                    <select id="langSelect" class="bg-black/40 border border-dajinniao-orange/35 text-sm font-bold text-white rounded-lg px-2.5 py-1.5 outline-none focus:border-dajinniao-yellow transition-colors">
+                        <option value="en">English</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="vi">Tiếng Việt</option>
+                    </select>
                 </div>
 
                 <button onclick="window.location.href='https://www.dajinniao.com/app/login?redirect=/index'" class="px-6 py-2 glass-panel neon-box-orange rounded-full font-bold text-sm hover:bg-dajinniao-orange hover:text-dajinniao-black transition-all duration-300">
@@ -355,6 +518,54 @@
         </div>
     </footer>
 
+    <!-- Support Assistant -->
+    <div class="support-anchor font-rajdhani">
+        <div id="supportPanel" class="support-panel support-panel--hidden glass-panel rounded-2xl border border-dajinniao-orange/35 shadow-[0_15px_45px_rgba(0,0,0,0.55)] flex flex-col overflow-hidden">
+            <div class="px-4 py-3 border-b border-dajinniao-orange/20 bg-black/40">
+                <div class="flex items-start justify-between gap-3">
+                    <div>
+                        <p id="supportPanelTitle" class="font-orbitron text-sm tracking-wide text-dajinniao-yellow">CROSS-BORDER FAQ</p>
+                        <p id="supportPanelSubtitle" class="text-xs text-gray-400 mt-1">Official FAQ Digest · Updated on 2026-03-04</p>
+                    </div>
+                    <button id="supportClose" class="w-8 h-8 rounded-full border border-dajinniao-orange/40 text-dajinniao-orange hover:bg-dajinniao-orange hover:text-black transition-colors" aria-label="Close FAQ panel">
+                        ✕
+                    </button>
+                </div>
+            </div>
+            <div id="supportMessages" class="support-messages flex-1 p-4 space-y-3 overflow-y-auto bg-black/25"></div>
+            <div class="p-4 border-t border-dajinniao-orange/20 bg-black/45">
+                <div id="supportQuickQuestions" class="flex flex-wrap gap-2 mb-3"></div>
+                <form id="supportForm" class="flex items-center gap-2">
+                    <input id="supportInput" type="text" maxlength="220" class="flex-1 bg-black/50 border border-dajinniao-orange/30 rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-500 outline-none focus:border-dajinniao-yellow transition-colors" placeholder="Ask: Can virtual cards be used for Meta ads?" />
+                    <button id="supportSendBtn" type="submit" class="px-4 py-2 rounded-lg bg-dajinniao-orange text-black font-bold text-sm hover:bg-dajinniao-yellow transition-colors">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="support-actions">
+            <a
+                id="telegramSupportBtn"
+                class="faq-button faq-button--telegram"
+                href="https://t.me/+ifSz76ET4FY3N2I1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Telegram Support"
+            >
+                <span class="tooltip">TELEGRAM</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.5 3.3c-.3-.3-.8-.4-1.2-.2L3.1 10.2c-.5.2-.8.6-.8 1.1 0 .5.4 1 .9 1.1l4.8 1.5 1.8 5.8c.2.5.6.8 1.1.8h.1c.5 0 .9-.3 1.1-.7l2.2-4.1 4.3 3.5c.3.2.6.3.9.3.2 0 .4 0 .6-.1.4-.2.7-.6.8-1l2-14c.1-.4-.1-.8-.4-1.1Zm-3.3 3.2-7.6 6.7c-.2.2-.3.4-.4.6l-.7 2.7-.9-2.9c-.1-.4-.4-.7-.8-.8l-2.5-.8 12.9-5.3Z"></path>
+                </svg>
+            </a>
+
+            <button id="supportToggle" class="faq-button" aria-label="Open FAQ panel">
+                <span id="supportTooltip" class="tooltip">FAQ</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3C6.477 3 2 6.94 2 11.8c0 2.744 1.42 5.192 3.64 6.794-.12 1.06-.58 2.067-1.34 2.86-.16.166-.203.413-.108.622.096.21.312.344.544.344 1.83 0 3.588-.666 4.96-1.87A11.67 11.67 0 0 0 12 20.6c5.523 0 10-3.94 10-8.8S17.523 3 12 3zm-4.5 9.3a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4.5 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zm4.5 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         const i18n = {
@@ -452,23 +663,598 @@
             }
         };
 
-        function switchLanguage(lang) {
-            const displayNames = { en: "English", 'zh-CN': "简体中文", 'zh-TW': "繁體中文", vi: "Tiếng Việt" };
-            document.getElementById('current-lang-display').innerText = displayNames[lang] || "Language";
-            
-            if (i18n[lang]) {
-                if (i18n[lang].page_title) document.title = i18n[lang].page_title;
-                document.documentElement.lang = lang;
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+        let currentSupportLang = 'zh-CN';
+        let supportRuntime = null;
+
+        const supportI18n = {
+            en: {
+                languageLabel: "language",
+                tooltip: "FAQ",
+                panelTitle: "CROSS-BORDER FAQ",
+                panelSubtitle: "Official FAQ Digest · Updated on 2026-03-04",
+                inputPlaceholder: "Ask: Can virtual cards be used for Meta ads?",
+                send: "Send",
+                typing: "Gathering official FAQ...",
+                welcome: "Hi, I am your cross-border payment FAQ assistant.\nI can help with virtual/physical cards, cross-border fees, ad spend, and decline troubleshooting.",
+                quickQuestions: [
+                    "How should I choose virtual vs physical cards?",
+                    "What card setup is better for Meta/Google ads?",
+                    "What fees are common in cross-border payments?",
+                    "What should I check first after a payment decline?"
+                ],
+                fallback: "Quick general answer:\n1. For online payments and ad spend, virtual cards are usually better.\n2. For POS and ATM use, physical cards are usually better.\n3. Check three fee buckets first: transaction fee, FX fee, and withdrawal/refund fee.\nYou can add platform + scenario (for example: Wise + ad spend) for a more precise answer.",
+                introWithPlatform: "Based on the platform(s) you mentioned ({platforms}), here is a quick answer:",
+                introGeneric: "Based on official FAQ from major cross-border payment platforms, here is a quick answer:",
+                adTip: "Ad-spend tip: use one card per channel, set independent limits, and keep a backup card to reduce disruption from risk-control declines.",
+                note: "Note: availability and fees vary by region, account tier, and compliance status. Final rules in your own account dashboard prevail.",
+                sourceFallback: "Source",
+                openAria: "Open FAQ panel",
+                closeAria: "Close FAQ panel",
+                platformJoin: ", "
+            },
+            'zh-CN': {
+                languageLabel: "language",
+                tooltip: "FAQ",
+                panelTitle: "跨境支付 FAQ",
+                panelSubtitle: "官方 FAQ 汇总 · 更新于 2026-03-04",
+                inputPlaceholder: "输入问题：如“虚拟卡能跑 Meta 广告吗？”",
+                send: "发送",
+                typing: "正在整理官方 FAQ...",
+                welcome: "你好，我是跨境支付 FAQ 助手。\n我可以回答：虚拟卡/实体卡、跨境支付费用、广告投放、支付失败排查等问题。",
+                quickQuestions: [
+                    "虚拟卡和实体卡怎么选？",
+                    "做 Meta/Google 广告投放，哪类卡更稳？",
+                    "跨境支付常见费用有哪些？",
+                    "支付失败一般先排查什么？"
+                ],
+                fallback: "我先给你通用结论：\n1. 线上支付/广告投放优先虚拟卡，按渠道拆卡并单独设限额。\n2. 线下 POS 与 ATM 场景优先实体卡。\n3. 跨境支付先确认三类费用：交易费、汇兑费、提现/退款费。\n你也可以继续补充：目标平台（如 Wise/Payoneer）+ 场景（广告/订阅/供应商付款）。",
+                introWithPlatform: "按你提到的平台（{platforms}），给你一个快速答复：",
+                introGeneric: "基于主流跨境支付平台官方 FAQ，给你一个快速答复：",
+                adTip: "投放建议：按广告渠道一渠道一卡，设置独立限额，并预留备份卡，降低风控导致的连续拒付风险。",
+                note: "提示：不同地区、账户等级和合规状态会影响可用功能与费率，下单前请以你账户后台的实时规则为准。",
+                sourceFallback: "来源",
+                openAria: "打开 FAQ 窗口",
+                closeAria: "关闭 FAQ 窗口",
+                platformJoin: "、"
+            },
+            'zh-TW': {
+                languageLabel: "language",
+                tooltip: "FAQ",
+                panelTitle: "跨境支付 FAQ",
+                panelSubtitle: "官方 FAQ 彙整 · 更新於 2026-03-04",
+                inputPlaceholder: "輸入問題：例如「虛擬卡能跑 Meta 廣告嗎？」",
+                send: "送出",
+                typing: "正在整理官方 FAQ...",
+                welcome: "你好，我是跨境支付 FAQ 助手。\n我可以回答：虛擬卡/實體卡、跨境支付費用、廣告投放、支付失敗排查等問題。",
+                quickQuestions: [
+                    "虛擬卡和實體卡怎麼選？",
+                    "做 Meta/Google 廣告投放，哪類卡更穩？",
+                    "跨境支付常見費用有哪些？",
+                    "支付失敗一般先排查什麼？"
+                ],
+                fallback: "先給你通用結論：\n1. 線上支付/廣告投放優先虛擬卡，按渠道拆卡並單獨設限額。\n2. 線下 POS 與 ATM 場景優先實體卡。\n3. 跨境支付先確認三類費用：交易費、匯兌費、提現/退款費。\n你也可以補充：目標平台（如 Wise/Payoneer）+ 場景（廣告/訂閱/供應商付款）。",
+                introWithPlatform: "按你提到的平台（{platforms}），給你一個快速答覆：",
+                introGeneric: "基於主流跨境支付平台官方 FAQ，給你一個快速答覆：",
+                adTip: "投放建議：按廣告渠道一渠道一卡，設定獨立限額，並保留備援卡，降低風控連續拒付風險。",
+                note: "提示：不同地區、帳戶等級與合規狀態會影響可用功能與費率，下單前請以帳戶後台規則為準。",
+                sourceFallback: "來源",
+                openAria: "打開 FAQ 視窗",
+                closeAria: "關閉 FAQ 視窗",
+                platformJoin: "、"
+            },
+            vi: {
+                languageLabel: "language",
+                tooltip: "FAQ",
+                panelTitle: "FAQ Thanh Toan Xuyen Bien Gioi",
+                panelSubtitle: "Tong hop FAQ chinh thuc · Cap nhat 2026-03-04",
+                inputPlaceholder: "Nhap cau hoi: Vi du 'The ao co chay duoc quang cao Meta khong?'",
+                send: "Gui",
+                typing: "Dang tong hop FAQ chinh thuc...",
+                welcome: "Xin chao, toi la tro ly FAQ thanh toan xuyen bien gioi.\nToi co the tra loi ve the ao/the vat ly, phi xuyen bien gioi, quang cao va xu ly giao dich bi tu choi.",
+                quickQuestions: [
+                    "Nen chon the ao hay the vat ly?",
+                    "Chay quang cao Meta/Google thi nen dung the nao?",
+                    "Thanh toan xuyen bien gioi thuong co nhung loai phi nao?",
+                    "Giao dich that bai thi nen kiem tra gi truoc?"
+                ],
+                fallback: "Tra loi tong quat:\n1. Thanh toan online va quang cao thuong nen uu tien the ao.\n2. POS va ATM thuong nen uu tien the vat ly.\n3. Kiem tra 3 nhom phi truoc: phi giao dich, phi chuyen doi ty gia va phi rut/hoan tien.\nBan co the bo sung ten nen tang + tinh huong de nhan tra loi chinh xac hon.",
+                introWithPlatform: "Theo nen tang ban vua neu ({platforms}), day la cau tra loi nhanh:",
+                introGeneric: "Du a tren FAQ chinh thuc cua cac nen tang thanh toan xuyen bien gioi, day la cau tra loi nhanh:",
+                adTip: "Meo quang cao: dung mot the cho moi kenh, dat han muc rieng va luon co the du phong de giam gian doan do risk-control decline.",
+                note: "Luu y: tinh nang va phi phu thuoc khu vuc, cap tai khoan va trang thai tuan thu. Luon uu tien quy tac thuc te trong dashboard cua ban.",
+                sourceFallback: "Nguon",
+                openAria: "Mo cua so FAQ",
+                closeAria: "Dong cua so FAQ",
+                platformJoin: ", "
+            }
+        };
+
+        const supportPlatformNames = {
+            wise: "Wise",
+            payoneer: "Payoneer",
+            airwallex: "Airwallex",
+            stripe: "Stripe",
+            worldfirst: "WorldFirst",
+            paypal: "PayPal"
+        };
+
+        const supportPlatformAliases = {
+            wise: ["wise"],
+            payoneer: ["payoneer", "p卡", "派安盈", "派安盈卡"],
+            airwallex: ["airwallex", "空中云汇", "空中雲匯"],
+            stripe: ["stripe"],
+            worldfirst: ["worldfirst", "万里汇", "萬里匯"],
+            paypal: ["paypal", "贝宝", "貝寶", "pp"]
+        };
+
+        const supportTopicAliases = {
+            virtual_card: ["虚拟卡", "虛擬卡", "virtual card", "digital card", "vcc", "线上卡", "線上卡", "online card", "the ao"],
+            physical_card: ["实体卡", "實體卡", "physical card", "线下刷卡", "線下刷卡", "atm", "取现", "取現", "the vat ly"],
+            ad_spend: ["广告", "廣告", "投放", "ad", "ads", "meta", "facebook", "google", "tiktok", "媒体买量", "quang cao"],
+            cross_border_fee: ["费率", "費率", "手续费", "手續費", "跨境费", "跨境費", "fx", "汇率", "匯率", "conversion", "费用", "費用", "phi", "ty gia"],
+            decline: ["失败", "失敗", "拒付", "decline", "被拒", "刷不过", "刷不過", "风控", "風控", "3ds", "tu choi", "that bai"]
+        };
+
+        const supportKnowledgeBase = [
+            {
+                id: "wise-virtual",
+                platform: "wise",
+                topic: "virtual_card",
+                keywords: ["wise", "虚拟卡", "3张", "digital card", "wallet"],
+                answer: "Wise：虚拟卡可用于线上支付并可绑定数字钱包；个人账户通常可同时持有最多 3 张虚拟卡，适合按订阅/场景拆分管理。",
+                sources: [
+                    { label: "Wise Virtual Card", url: "https://wise.com/us/virtual-card" },
+                    { label: "Wise Card Fees", url: "https://wise.com/help/articles/2934551/what-are-the-wise-card-fees" }
+                ]
+            },
+            {
+                id: "wise-limits-fees",
+                platform: "wise",
+                topic: "cross_border_fee",
+                keywords: ["wise", "额度", "限额", "费用", "atm", "withdraw"],
+                answer: "Wise：支持按日/月设置支出限额；ATM 与换汇费用按地区和额度阶梯计费，超限后会有额外费用。",
+                sources: [
+                    { label: "Wise Spending Limits", url: "https://wise.com/help/articles/2899986/what-are-my-wise-card-spending-limits" },
+                    { label: "Wise Business Card Pricing", url: "https://wise.com/us/pricing/business/card-fees" }
+                ]
+            },
+            {
+                id: "payoneer-cards",
+                platform: "payoneer",
+                topic: "virtual_card",
+                keywords: ["payoneer", "虚拟卡", "实体卡", "linked", "卡限额"],
+                answer: "Payoneer：同一账户可配置实体卡和虚拟卡（含 linked cards）；支持日/月/总额度控制，卡资格与可开数量会受账户历史收款和地区合规限制影响。",
+                sources: [
+                    { label: "Payoneer Card FAQ", url: "https://payoneer.custhelp.com/app/answers/detail/a_id/18226/" }
+                ]
+            },
+            {
+                id: "payoneer-adspend",
+                platform: "payoneer",
+                topic: "ad_spend",
+                keywords: ["广告", "投放", "facebook", "google", "marketing", "payoneer"],
+                answer: "Payoneer：官方资料明确支持用商业卡支付 Facebook/Google 等广告平台支出；可多卡管理并按需提升限额（以审核结果为准）。",
+                sources: [
+                    { label: "Payoneer Commercial Mastercard", url: "https://www.payoneer.com/resources/business/the-payoneer-commercial-mastercard-program-is-here/" }
+                ]
+            },
+            {
+                id: "airwallex-virtual-ad",
+                platform: "airwallex",
+                topic: "ad_spend",
+                keywords: ["airwallex", "虚拟卡", "广告", "single-use", "limit"],
+                answer: "Airwallex：可即时创建虚拟卡用于广告、SaaS、差旅等支出；支持单次虚拟卡、卡级限额和多成员共享，适合按渠道拆卡投放。",
+                sources: [
+                    { label: "Airwallex Virtual Cards", url: "https://www.airwallex.com/us/spend-management/cards/virtual-cards" },
+                    { label: "Airwallex Card Limits", url: "https://help.airwallex.com/hc/en-gb/articles/900001755706-How-do-I-set-card-limits-and-transaction-limits" }
+                ]
+            },
+            {
+                id: "airwallex-decline",
+                platform: "airwallex",
+                topic: "decline",
+                keywords: ["airwallex", "支付失败", "decline", "3ds", "余额不足"],
+                answer: "Airwallex：支付失败常见原因是超限额、钱包余额不足、实体卡未激活或 3DS 验证异常，排查顺序建议先看限额与余额，再看卡状态与验证记录。",
+                sources: [
+                    { label: "Airwallex Payment Failed", url: "https://help.airwallex.com/hc/en-gb/articles/900007068643-Why-did-my-card-payment-fail" }
+                ]
+            },
+            {
+                id: "stripe-card-choice",
+                platform: "stripe",
+                topic: "virtual_card",
+                keywords: ["stripe", "虚拟卡", "实体卡", "issuing", "use case"],
+                answer: "Stripe Issuing：虚拟卡适合纯线上/B2B 场景，实体卡更适合线下 POS；两种卡可以并行发放，按团队场景混合使用。",
+                sources: [
+                    { label: "Stripe Choose Cards", url: "https://docs.stripe.com/issuing/choose-cards" }
+                ]
+            },
+            {
+                id: "stripe-limits",
+                platform: "stripe",
+                topic: "physical_card",
+                keywords: ["stripe", "限额", "physical", "shipping", "decline"],
+                answer: "Stripe Financial Accounts：单持卡人默认最多 2 张实体卡和 20 张虚拟卡；实体卡通常约 10 个工作日送达，超限/风控会触发拒付。",
+                sources: [
+                    { label: "Stripe Financial Accounts Cards", url: "https://docs.stripe.com/financial-accounts/cards" }
+                ]
+            },
+            {
+                id: "worldfirst-card",
+                platform: "worldfirst",
+                topic: "cross_border_fee",
+                keywords: ["worldfirst", "万里汇", "world card", "fx", "150", "广告"],
+                answer: "WorldFirst（万里汇）：World Card 支持 150+ 币种消费；在账户同币种余额支付 15 种主流币时可免卡片 FX 费用，并覆盖广告、订阅、物流等场景。",
+                sources: [
+                    { label: "WorldFirst World Card", url: "https://www.worldfirst.com/global/product/pay/world-card/" }
+                ]
+            },
+            {
+                id: "paypal-fees",
+                platform: "paypal",
+                topic: "cross_border_fee",
+                keywords: ["paypal", "跨境费", "国际交易", "merchant fees", "1.50%"],
+                answer: "PayPal（US 商户费率页）：国际收款通常是在国内商业交易费基础上再加国际附加费（页面展示为 1.50%），并叠加币种固定费。",
+                sources: [
+                    { label: "PayPal Merchant Fees", url: "https://www.paypal.com/us/business/paypal-business-fees" }
+                ]
+            },
+            {
+                id: "paypal-business-card",
+                platform: "paypal",
+                topic: "physical_card",
+                keywords: ["paypal", "business debit", "实体卡", "员工卡", "cashback"],
+                answer: "PayPal Business Debit Mastercard：支持实体卡及数字卡使用，最多可给员工配发附属卡（以产品规则为准），适合把 PayPal 余额直接用于日常企业支出。",
+                sources: [
+                    { label: "PayPal Business Debit Card", url: "https://www.paypal.com/us/business/financial-services/debit-card" }
+                ]
+            },
+            {
+                id: "multi-card-strategy",
+                platform: "multi",
+                topic: "virtual_card",
+                keywords: ["怎么选", "虚拟卡", "实体卡", "对比", "建议", "strategy"],
+                answer: "通用建议：线上订阅/广告投放优先虚拟卡（可拆卡、可设限额、可快速冻结）；线下差旅/门店/ATM 取现优先实体卡。最佳实践是二者并行。",
+                sources: [
+                    { label: "Stripe Choose Cards", url: "https://docs.stripe.com/issuing/choose-cards" },
+                    { label: "Airwallex Virtual Cards", url: "https://www.airwallex.com/us/spend-management/cards/virtual-cards" },
+                    { label: "Payoneer Card FAQ", url: "https://payoneer.custhelp.com/app/answers/detail/a_id/18226/" }
+                ]
+            }
+        ];
+
+        const supportAnswerI18n = {
+            en: {
+                "wise-virtual": "Wise: virtual cards can be used for online checkout and digital wallets; personal users can usually keep up to 3 virtual cards for scenario-based management.",
+                "wise-limits-fees": "Wise: daily/monthly card limits can be configured; ATM and FX charges depend on region and tiers, with extra costs after free allowance.",
+                "payoneer-cards": "Payoneer: one account can hold both physical and virtual cards (including linked cards); daily/monthly/total limits are available, while eligibility depends on account history and regional compliance.",
+                "payoneer-adspend": "Payoneer: official materials indicate business cards can pay for ad spend on platforms such as Facebook and Google; limit increases are subject to review.",
+                "airwallex-virtual-ad": "Airwallex: virtual cards can be issued instantly for ads, SaaS, and travel; single-use cards, card-level limits, and team sharing are supported.",
+                "airwallex-decline": "Airwallex: common decline reasons include limit reached, insufficient wallet balance, inactive physical card, or 3DS issues; check limits and balance first.",
+                "stripe-card-choice": "Stripe Issuing: virtual cards suit online and B2B spend, while physical cards are better for in-person POS. A mixed setup is supported.",
+                "stripe-limits": "Stripe Financial Accounts: by default, one cardholder can have up to 2 physical cards and 20 virtual cards; physical delivery usually takes around 10 business days.",
+                "worldfirst-card": "WorldFirst: World Card supports spending in 150+ currencies; card FX can be waived on selected major currencies when paid from same-currency balances.",
+                "paypal-fees": "PayPal (US merchant fee page): international transactions generally add an international surcharge (shown as 1.50%) on top of domestic commercial rates, plus fixed currency fees.",
+                "paypal-business-card": "PayPal Business Debit Mastercard: supports both physical and digital card usage, suitable for spending directly from PayPal balances.",
+                "multi-card-strategy": "General strategy: use virtual cards for online subscriptions and ad spend, and physical cards for POS/travel/ATM. Running both in parallel is often best."
+            },
+            'zh-TW': {
+                "wise-virtual": "Wise：虛擬卡可用於線上支付並可綁定數位錢包；個人帳戶通常可同時持有最多 3 張虛擬卡，適合按場景拆分管理。",
+                "wise-limits-fees": "Wise：可設定日/月支出限額；ATM 與換匯費用按地區與額度階梯計費，超過免費額度後會有額外費用。",
+                "payoneer-cards": "Payoneer：同一帳戶可配置實體卡與虛擬卡（含 linked cards）；支援日/月/總額度控制，資格會受收款歷史與地區合規影響。",
+                "payoneer-adspend": "Payoneer：官方資料顯示商業卡可支付 Facebook/Google 等廣告平台支出；限額提升需以審核結果為準。",
+                "airwallex-virtual-ad": "Airwallex：可即時建立虛擬卡用於廣告、SaaS、差旅支出；支援一次性虛擬卡、卡級限額與多成員共享。",
+                "airwallex-decline": "Airwallex：支付失敗常見原因包含超限、錢包餘額不足、實體卡未啟用或 3DS 異常；建議先檢查限額與餘額。",
+                "stripe-card-choice": "Stripe Issuing：虛擬卡更適合純線上/B2B 支出，實體卡更適合線下 POS；兩種卡可並行發放。",
+                "stripe-limits": "Stripe Financial Accounts：單持卡人預設最多 2 張實體卡與 20 張虛擬卡；實體卡配送通常約 10 個工作日。",
+                "worldfirst-card": "WorldFirst（萬里匯）：World Card 支援 150+ 幣種消費；在特定主流幣種且同幣種餘額支付時，卡片 FX 費可降低或免除。",
+                "paypal-fees": "PayPal（美國商戶費率頁）：國際交易通常是在國內商業交易費基礎上加收國際附加費（頁面顯示 1.50%），並疊加固定幣種費。",
+                "paypal-business-card": "PayPal Business Debit Mastercard：支援實體卡與數位卡使用，適合直接使用 PayPal 餘額做企業日常支出。",
+                "multi-card-strategy": "通用策略：線上訂閱/廣告投放優先虛擬卡，POS/差旅/ATM 優先實體卡；兩者並行通常更穩定。"
+            },
+            vi: {
+                "wise-virtual": "Wise: the ao dung cho thanh toan online va lien ket vi so; tai khoan ca nhan thuong co the giu toi da 3 the ao.",
+                "wise-limits-fees": "Wise: co the dat han muc ngay/thang; phi ATM va chuyen doi ty gia tinh theo khu vuc va bac han muc.",
+                "payoneer-cards": "Payoneer: mot tai khoan co the dung ca the vat ly va the ao; han muc ngay/thang/tong co san, dieu kien phu thuoc lich su tai khoan va quy dinh khu vuc.",
+                "payoneer-adspend": "Payoneer: tai lieu chinh thuc cho thay the doanh nghiep co the thanh toan quang cao Facebook/Google; tang han muc can duoc phe duyet.",
+                "airwallex-virtual-ad": "Airwallex: co the tao the ao ngay lap tuc cho quang cao, SaaS va cong tac; ho tro the dung mot lan, han muc theo the va chia se cho team.",
+                "airwallex-decline": "Airwallex: giao dich that bai thuong do vuot han muc, thieu so du, the vat ly chua kich hoat, hoac loi 3DS; nen kiem tra han muc va so du truoc.",
+                "stripe-card-choice": "Stripe Issuing: the ao hop voi chi tieu online/B2B, con the vat ly hop voi POS tai cua hang; co the trien khai song song.",
+                "stripe-limits": "Stripe Financial Accounts: mac dinh moi chu the co toi da 2 the vat ly va 20 the ao; giao the vat ly thuong mat khoang 10 ngay lam viec.",
+                "worldfirst-card": "WorldFirst: World Card ho tro chi tieu hon 150 dong tien; phi FX co the duoc giam/mien trong mot so dieu kien so du cung dong tien.",
+                "paypal-fees": "PayPal (trang phi cho doanh nghiep tai My): giao dich quoc te thuong cong them phu phi quoc te (hien thi 1.50%) tren muc phi noi dia, kem phi co dinh theo dong tien.",
+                "paypal-business-card": "PayPal Business Debit Mastercard: ho tro dung ca the vat ly va the so, phu hop de chi tieu truc tiep tu so du PayPal.",
+                "multi-card-strategy": "Chien luoc chung: uu tien the ao cho online/subscription/quang cao; uu tien the vat ly cho POS/cong tac/ATM; ket hop ca hai la on dinh nhat."
+            }
+        };
+
+        function getSupportLocale(lang = currentSupportLang) {
+            return supportI18n[lang] || supportI18n['zh-CN'];
+        }
+
+        function getSupportAnswer(entry) {
+            const localeAnswer = supportAnswerI18n[currentSupportLang] || {};
+            const fallbackAnswer = supportAnswerI18n['zh-CN'] || {};
+            return localeAnswer[entry.id] || fallbackAnswer[entry.id] || entry.answer;
+        }
+
+        function normalizeSupportText(value) {
+            return (value || "")
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "")
+                .replace(/[，。！？,.!?;；:：'"`~!@#$%^&*()_+\-=[\]{}|\\/<>]/g, "");
+        }
+
+        function detectSupportPlatforms(normalizedQuery) {
+            return Object.entries(supportPlatformAliases)
+                .filter(([, aliases]) => aliases.some(alias => normalizedQuery.includes(normalizeSupportText(alias))))
+                .map(([platform]) => platform);
+        }
+
+        function detectSupportTopics(normalizedQuery) {
+            return Object.entries(supportTopicAliases)
+                .filter(([, aliases]) => aliases.some(alias => normalizedQuery.includes(normalizeSupportText(alias))))
+                .map(([topic]) => topic);
+        }
+
+        function scoreSupportEntry(entry, normalizedQuery, platforms, topics) {
+            let score = 0;
+            if (topics.includes(entry.topic)) score += 8;
+            if (platforms.length === 0 && entry.platform === "multi") score += 3;
+            if (platforms.includes(entry.platform)) score += 6;
+
+            entry.keywords.forEach(keyword => {
+                if (normalizedQuery.includes(normalizeSupportText(keyword))) score += 2;
+            });
+
+            if (entry.platform === "multi" && topics.length > 0) score += 2;
+            return score;
+        }
+
+        function dedupeSources(entries) {
+            const seen = new Set();
+            const result = [];
+            entries.forEach(entry => {
+                entry.sources.forEach(source => {
+                    if (!seen.has(source.url)) {
+                        seen.add(source.url);
+                        result.push(source);
+                    }
+                });
+            });
+            return result.slice(0, 5);
+        }
+
+        function applySupportLanguage(lang) {
+            currentSupportLang = supportI18n[lang] ? lang : 'zh-CN';
+            const locale = getSupportLocale();
+
+            const panelTitle = document.getElementById("supportPanelTitle");
+            const panelSubtitle = document.getElementById("supportPanelSubtitle");
+            const tooltip = document.getElementById("supportTooltip");
+            const input = document.getElementById("supportInput");
+            const sendBtn = document.getElementById("supportSendBtn");
+            const toggleBtn = document.getElementById("supportToggle");
+            const closeBtn = document.getElementById("supportClose");
+
+            if (panelTitle) panelTitle.textContent = locale.panelTitle;
+            if (panelSubtitle) panelSubtitle.textContent = locale.panelSubtitle;
+            if (tooltip) tooltip.textContent = locale.tooltip;
+            if (input) input.placeholder = locale.inputPlaceholder;
+            if (sendBtn) sendBtn.textContent = locale.send;
+            if (toggleBtn) toggleBtn.setAttribute("aria-label", locale.openAria);
+            if (closeBtn) closeBtn.setAttribute("aria-label", locale.closeAria);
+
+            if (supportRuntime && typeof supportRuntime.renderQuickQuestions === "function") {
+                supportRuntime.renderQuickQuestions();
+            }
+        }
+
+        function buildSupportReply(question) {
+            const locale = getSupportLocale();
+            const normalized = normalizeSupportText(question);
+            const matchedPlatforms = detectSupportPlatforms(normalized);
+            const matchedTopics = detectSupportTopics(normalized);
+
+            const ranked = supportKnowledgeBase
+                .map(entry => ({
+                    entry,
+                    score: scoreSupportEntry(entry, normalized, matchedPlatforms, matchedTopics)
+                }))
+                .filter(item => item.score > 0)
+                .sort((a, b) => b.score - a.score);
+
+            if (ranked.length === 0) {
+                return {
+                    text: locale.fallback,
+                    sources: [
+                        { label: "Stripe Choose Cards", url: "https://docs.stripe.com/issuing/choose-cards" },
+                        { label: "PayPal Merchant Fees", url: "https://www.paypal.com/us/business/paypal-business-fees" }
+                    ]
+                };
+            }
+
+            const bestEntries = ranked.slice(0, 3).map(item => item.entry);
+            const sourceList = dedupeSources(bestEntries);
+            const platformNames = matchedPlatforms.map(key => supportPlatformNames[key]).join(locale.platformJoin);
+            const intro = matchedPlatforms.length
+                ? locale.introWithPlatform.replace("{platforms}", platformNames)
+                : locale.introGeneric;
+
+            const lines = [intro];
+            bestEntries.forEach((entry, index) => {
+                lines.push(`${index + 1}. ${getSupportAnswer(entry)}`);
+            });
+
+            if (matchedTopics.includes("ad_spend")) {
+                lines.push(locale.adTip);
+            }
+
+            lines.push(locale.note);
+            return { text: lines.join("\n"), sources: sourceList };
+        }
+
+        function initSupportAssistant() {
+            const panel = document.getElementById("supportPanel");
+            const toggleBtn = document.getElementById("supportToggle");
+            const closeBtn = document.getElementById("supportClose");
+            const messagesEl = document.getElementById("supportMessages");
+            const quickEl = document.getElementById("supportQuickQuestions");
+            const form = document.getElementById("supportForm");
+            const input = document.getElementById("supportInput");
+            if (!panel || !toggleBtn || !closeBtn || !messagesEl || !quickEl || !form || !input) return;
+
+            let hasWelcomed = false;
+
+            function setPanelOpen(open) {
+                panel.classList.toggle("support-panel--hidden", !open);
+                panel.classList.toggle("support-panel--visible", open);
+            }
+
+            function appendMessage(role, text, sources = []) {
+                const locale = getSupportLocale();
+                const row = document.createElement("div");
+                row.className = role === "user" ? "flex justify-end" : "flex justify-start";
+
+                const bubble = document.createElement("div");
+                bubble.className = role === "user"
+                    ? "max-w-[88%] rounded-2xl rounded-br-sm px-3 py-2 text-sm bg-dajinniao-orange text-black font-semibold"
+                    : "max-w-[92%] rounded-2xl rounded-bl-sm px-3 py-2 text-sm bg-white/5 border border-dajinniao-orange/20 text-gray-100";
+
+                const messageBody = document.createElement("div");
+                messageBody.className = "whitespace-pre-wrap leading-relaxed";
+                messageBody.textContent = text;
+                bubble.appendChild(messageBody);
+
+                if (role === "assistant" && sources.length) {
+                    const sourceWrap = document.createElement("div");
+                    sourceWrap.className = "mt-2 pt-2 border-t border-white/10 flex flex-wrap gap-2";
+                    sources.forEach((source, index) => {
+                        const link = document.createElement("a");
+                        link.href = source.url;
+                        link.target = "_blank";
+                        link.rel = "noopener noreferrer";
+                        link.className = "text-xs text-dajinniao-yellow hover:text-dajinniao-orange underline";
+                        link.textContent = source.label || `${locale.sourceFallback}${index + 1}`;
+                        sourceWrap.appendChild(link);
+                    });
+                    bubble.appendChild(sourceWrap);
+                }
+
+                row.appendChild(bubble);
+                messagesEl.appendChild(row);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+
+            function askSupport(question) {
+                const content = question.trim();
+                if (!content) return;
+
+                appendMessage("user", content);
+                input.value = "";
+
+                const locale = getSupportLocale();
+                const typingRow = document.createElement("div");
+                typingRow.className = "flex justify-start";
+                const typingBubble = document.createElement("div");
+                typingBubble.className = "rounded-2xl rounded-bl-sm px-3 py-2 text-sm bg-white/5 border border-dajinniao-orange/20 text-gray-400";
+                typingBubble.textContent = locale.typing;
+                typingRow.appendChild(typingBubble);
+                messagesEl.appendChild(typingRow);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+
+                setTimeout(() => {
+                    typingRow.remove();
+                    const result = buildSupportReply(content);
+                    appendMessage("assistant", result.text, result.sources);
+                }, 280);
+            }
+
+            function ensureWelcomeMessage() {
+                if (hasWelcomed) return;
+                appendMessage("assistant", getSupportLocale().welcome);
+                hasWelcomed = true;
+            }
+
+            function renderQuickQuestions() {
+                const locale = getSupportLocale();
+                quickEl.innerHTML = "";
+                locale.quickQuestions.forEach(question => {
+                    const chip = document.createElement("button");
+                    chip.type = "button";
+                    chip.className = "px-2.5 py-1.5 text-xs rounded-full border border-dajinniao-orange/35 text-dajinniao-yellow hover:bg-dajinniao-orange hover:text-black transition-colors";
+                    chip.textContent = question;
+                    chip.addEventListener("click", () => askSupport(question));
+                    quickEl.appendChild(chip);
                 });
             }
-            localStorage.setItem('dajinniao-preferred-lang', lang);
+
+            supportRuntime = { renderQuickQuestions };
+            renderQuickQuestions();
+
+            toggleBtn.addEventListener("click", () => {
+                const opening = panel.classList.contains("support-panel--hidden");
+                setPanelOpen(opening);
+                if (opening) {
+                    ensureWelcomeMessage();
+                    input.focus();
+                }
+            });
+
+            closeBtn.addEventListener("click", () => setPanelOpen(false));
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                askSupport(input.value);
+            });
+        }
+
+        function closeLanguageMenu() {
+            // Native select closes automatically after choosing an option.
+        }
+
+        function setActiveLanguageOption(lang) {
+            const select = document.getElementById("langSelect");
+            if (select) select.value = lang;
+        }
+
+        function initLanguageMenu() {
+            const select = document.getElementById("langSelect");
+            if (!select) return;
+
+            select.addEventListener("change", (event) => {
+                const nextLang = event.target && event.target.value ? event.target.value : "zh-CN";
+                switchLanguage(nextLang);
+            });
+        }
+
+        function switchLanguage(lang) {
+            const nextLang = i18n[lang] ? lang : 'zh-CN';
+            const currentLangDisplay = document.getElementById('current-lang-display');
+            if (currentLangDisplay) currentLangDisplay.innerText = "LANGUAGE";
+
+            if (i18n[nextLang]) {
+                if (i18n[nextLang].page_title) document.title = i18n[nextLang].page_title;
+                document.documentElement.lang = nextLang;
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (i18n[nextLang][key]) el.innerHTML = i18n[nextLang][key];
+                });
+            }
+
+            applySupportLanguage(nextLang);
+            setActiveLanguageOption(nextLang);
+            closeLanguageMenu();
+            localStorage.setItem('dajinniao-preferred-lang', nextLang);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('dajinniao-preferred-lang') || 'en';
+            const savedLang = localStorage.getItem('dajinniao-preferred-lang') || 'zh-CN';
+            currentSupportLang = supportI18n[savedLang] ? savedLang : 'zh-CN';
+            initLanguageMenu();
+            initSupportAssistant();
             switchLanguage(savedLang);
 
             // Particles logic
