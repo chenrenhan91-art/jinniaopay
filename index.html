@@ -28,15 +28,15 @@
                     },
                     colors: {
                         dajinniao: {
-                            black: '#0a0a0a',      /* Deep Black */
-                            dark: '#141414',       /* Dark Panel */
-                            orange: '#F59E0B',    /* Primary Orange */
-                            yellow: '#FBBF24',    /* Secondary Yellow */
-                            gold: '#D97706'       /* Gold Accent */
+                            black: '#2A2420',      /* Warm Dark (hover text) */
+                            dark: '#FFF8EE',       /* Warm Light Surface */
+                            orange: '#E8961E',    /* Golden Orange */
+                            yellow: '#F5C14A',    /* Light Golden */
+                            gold: '#C27B0A'       /* Deep Gold */
                         }
                     },
                     backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, rgba(217, 119, 6, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(217, 119, 6, 0.08) 1px, transparent 1px)",
+                        'grid-pattern': "linear-gradient(to right, rgba(232, 150, 30, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(232, 150, 30, 0.08) 1px, transparent 1px)",
                     }
                 }
             }
@@ -46,36 +46,41 @@
     <style>
         /* Base Styles */
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
+            background-color: #FFFFFF;
+            color: #2A2420;
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #F59E0B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FBBF24; }
+        ::-webkit-scrollbar-track { background: #FFFFFF; }
+        ::-webkit-scrollbar-thumb { background: #E8961E; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C27B0A; }
 
-        /* Neon & Glow Effects - Tuned for Black Gold */
+        /* Gold Glow Effects - White & Golden Orange Theme */
         .neon-text-orange {
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.3), 0 0 20px rgba(245, 158, 11, 0.1);
+            text-shadow: 0 2px 12px rgba(232, 150, 30, 0.55), 0 0 30px rgba(194, 123, 10, 0.28);
         }
         .neon-text-yellow {
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.3), 0 0 20px rgba(251, 191, 36, 0.1);
+            text-shadow: 0 2px 12px rgba(245, 193, 74, 0.55);
         }
         .neon-box-orange {
-            box-shadow: 0 4px 25px rgba(245, 158, 11, 0.15), inset 0 0 10px rgba(245, 158, 11, 0.05);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 4px 28px rgba(194, 123, 10, 0.28), 0 1px 6px rgba(232, 150, 30, 0.20);
+            border: 1px solid rgba(232, 150, 30, 0.55);
+        }
+        .neon-box-yellow {
+            box-shadow: 0 4px 28px rgba(194, 123, 10, 0.22), 0 1px 6px rgba(245, 193, 74, 0.18);
+            border: 1px solid rgba(245, 193, 74, 0.52);
         }
 
-        /* Glassmorphism - Black Gold Vibe */
+        /* Glassmorphism - White & Golden Orange */
         .glass-panel {
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(217, 119, 6, 0.15);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 150, 30, 0.28);
+            box-shadow: 0 2px 20px rgba(194, 123, 10, 0.08);
         }
 
         /* 3D Flip Cards */
@@ -159,7 +164,7 @@
 
         .support-messages {
             scrollbar-width: thin;
-            scrollbar-color: rgba(245, 158, 11, 0.6) rgba(10, 10, 10, 0.2);
+            scrollbar-color: rgba(232, 150, 30, 0.6) rgba(255, 248, 238, 0.5);
         }
 
         .support-messages::-webkit-scrollbar {
@@ -167,30 +172,30 @@
         }
 
         .support-messages::-webkit-scrollbar-thumb {
-            background: rgba(245, 158, 11, 0.55);
+            background: rgba(232, 150, 30, 0.5);
             border-radius: 8px;
         }
 
-        /* FAQ Button Style (adapted from Uiverse.io by vinodjangid07) */
+        /* FAQ Button Style - White & Golden Orange Edition */
         .faq-button {
             width: 58px;
             height: 58px;
             border-radius: 50%;
             border: none;
-            background-color: #ffe53b;
-            background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+            background-color: #E8961E;
+            background-image: linear-gradient(147deg, #F5C14A 0%, #C27B0A 74%);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 12px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 10px 22px rgba(140, 80, 10, 0.28), 0 0 14px rgba(232, 150, 30, 0.25);
             position: relative;
         }
 
         .faq-button svg {
             height: 1.8em;
             width: 1.8em;
-            fill: white;
+            fill: #FAFAF8;
         }
 
         .faq-button:hover svg {
@@ -213,9 +218,9 @@
             transform: translateX(-50%);
             top: -20px;
             opacity: 0;
-            background-color: #ffe53b;
-            background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
-            color: white;
+            background-color: #E8961E;
+            background-image: linear-gradient(147deg, #F5C14A 0%, #C27B0A 74%);
+            color: #FFFFFF;
             padding: 6px 10px;
             border-radius: 6px;
             display: flex;
@@ -234,7 +239,7 @@
             content: "";
             width: 10px;
             height: 10px;
-            background-color: #ff2525;
+            background-color: #C27B0A;
             transform: rotate(45deg);
             bottom: -15%;
             transition-duration: 0.3s;
@@ -301,16 +306,194 @@
                 display: none;
             }
         }
+
+        /* ===== WHITE + GOLDEN ORANGE THEME — TAILWIND UTILITY OVERRIDES ===== */
+        /* Flip dark text utilities to warm-dark for legibility on light bg */
+        .text-white { color: #2A2420 !important; }
+        .text-white\/90 { color: rgba(42, 36, 32, 0.92) !important; }
+        .text-white\/5 { color: rgba(232, 150, 30, 0.22) !important; }
+        .text-gray-100 { color: #3A3028 !important; }
+        .text-gray-300 { color: #7A7268 !important; }
+        .text-gray-400 { color: #8A8278 !important; }
+        .text-gray-500 { color: #6A6258 !important; }
+        .text-gray-600 { color: #5A5248 !important; }
+        /* Flip dark bg utilities to pure-white equivalents */
+        .bg-black\/80 { background-color: rgba(255, 255, 255, 0.95) !important; }
+        .bg-black\/90 { background-color: rgba(255, 255, 255, 0.97) !important; }
+        .bg-black\/40 { background-color: rgba(255, 255, 255, 0.72) !important; }
+        .bg-black\/45 { background-color: rgba(255, 255, 255, 0.75) !important; }
+        .bg-black\/25 { background-color: rgba(255, 255, 255, 0.52) !important; }
+        .bg-black\/50 { background-color: rgba(255, 255, 255, 0.82) !important; }
+        .bg-white\/5  { background-color: rgba(232, 150, 30, 0.09) !important; }
+        /* Flip nearly-invisible white borders to visible golden-orange borders */
+        .border-white\/5  { border-color: rgba(232, 150, 30, 0.18) !important; }
+        .border-white\/20 { border-color: rgba(232, 150, 30, 0.32) !important; }
+        /* Ensure button hover text stays dark on gold bg */
+        .hover\:text-dajinniao-black:hover { color: #2A2420 !important; }
+
+        /* ===== HERO VIDEO / LIGHT BEAM BACKGROUND ===== */
+        .hero-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-video-el {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+        }
+        .hero-light-beams {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .hero-beam {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(232, 150, 30, 0.0) 5%,
+                rgba(232, 150, 30, 0.82) 35%,
+                rgba(245, 193, 74, 0.55) 60%,
+                transparent 100%
+            );
+            filter: blur(14px);
+            opacity: 0;
+            animation: beamFloat 12s ease-in-out infinite;
+        }
+        .hero-beam:nth-child(1) { left: 12%;  width: 18px; animation-delay: 0s;   animation-duration: 11s; }
+        .hero-beam:nth-child(2) { left: 38%;  width: 12px; animation-delay: 3.5s; animation-duration: 13s; }
+        .hero-beam:nth-child(3) { left: 66%;  width: 16px; animation-delay: 7s;   animation-duration: 10s; }
+        .hero-beam:nth-child(4) { left: 85%;  width: 10px; animation-delay: 1.8s; animation-duration: 14s; }
+        @keyframes beamFloat {
+            0%   { opacity: 0;   transform: translateY(16px);  }
+            18%  { opacity: 0.9; }
+            50%  { opacity: 0.7; transform: translateY(-10px); }
+            82%  { opacity: 0.9; }
+            100% { opacity: 0;   transform: translateY(16px);  }
+        }
+        /* Diagonal ambient sweep overlay */
+        .hero-sweep {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                118deg,
+                transparent 0%, transparent 25%,
+                rgba(232, 150, 30, 0.12) 40%,
+                rgba(245, 193, 74, 0.22) 50%,
+                rgba(232, 150, 30, 0.12) 60%,
+                transparent 75%, transparent 100%
+            );
+            background-size: 300% 300%;
+            animation: heroSweep 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes heroSweep {
+            0%   { background-position: 0% 0%; }
+            50%  { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* ===== FEATURE CARD SHINE + ICON PULSE ===== */
+        .flip-card-front { overflow: hidden; }
+        .flip-card-front::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -120%;
+            width: 60%; height: 100%;
+            background: linear-gradient(105deg, transparent 25%, rgba(232, 150, 30, 0.42) 50%, transparent 75%);
+            transform: skewX(-15deg);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .flip-card:hover .flip-card-front::after {
+            animation: cardShine 0.38s ease forwards;
+        }
+        @keyframes cardShine { to { left: 160%; } }
+
+        /* Icon container pulse ring on hover */
+        .feature-card:hover .flip-card-front .rounded-full {
+            animation: iconPulse 1.4s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 0 0 0   rgba(232, 150, 30, 0.35); }
+            50%       { box-shadow: 0 0 0 10px rgba(232, 150, 30, 0); }
+        }
+        /* Enhanced glow on hovered card front */
+        .feature-card:hover .flip-card-front {
+            box-shadow: 0 8px 44px rgba(194, 123, 10, 0.26), 0 2px 14px rgba(232, 150, 30, 0.16) !important;
+            border-color: rgba(232, 150, 30, 0.60) !important;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonial-card {
+            transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.32s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-9px) scale(1.018);
+            box-shadow: 0 18px 52px rgba(194, 123, 10, 0.22);
+        }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700; font-size: 13px;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+        .star-row { color: #E8961E; font-size: 13px; letter-spacing: 3px; }
+
+        /* ===== SHADER HERO CANVAS ===== */
+        #shaderCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            touch-action: none;
+            z-index: 0;
+        }
+        .hero-dark-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(0,0,0,0.30) 0%,
+                rgba(0,0,0,0.08) 50%,
+                rgba(0,0,0,0.38) 100%
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+        /* Restore light text in hero section when darkened by shader */
+        #heroSection .text-white        { color: #FFFFFF !important; }
+        #heroSection .text-white\/90    { color: rgba(255,255,255,.92) !important; }
+        #heroSection .text-white\/5     { color: rgba(232,150,30,.22) !important; }
+        #heroSection h1                 { color: #FFFFFF !important; }
+        #heroSection .text-gray-400     { color: rgba(255,240,200,.72) !important; }
+        #heroSection .text-gray-300     { color: rgba(255,245,215,.88) !important; }
+        #heroSection .glass-panel {
+            background: rgba(0,0,0,.30) !important;
+            border-color: rgba(232,150,30,.52) !important;
+            box-shadow: 0 2px 24px rgba(0,0,0,.28) !important;
+        }
     </style>
 </head>
 <body class="antialiased relative">
 
     <!-- Background Elements -->
-    <div class="fixed inset-0 z-[-2] bg-dajinniao-black"></div>
+    <div class="fixed inset-0 z-[-2]" style="background-color:#FFFFFF;"></div>
     <div class="fixed inset-0 z-[-1] opacity-50 bg-grid bg-grid-pattern"></div>
     <canvas id="particleCanvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
 
-    <!-- Ambient Glow Spots - Reduced Opacity for Black Gold Elegance -->
+    <!-- Ambient Glow Spots - Platinum Elegance -->
     <div class="ambient-glow bg-dajinniao-orange w-[500px] h-[500px] top-[-10%] left-[-10%] opacity-10"></div>
     <div class="ambient-glow bg-dajinniao-yellow w-[600px] h-[600px] bottom-[-20%] right-[-10%] opacity-5"></div>
     <div id="scrollGlow" class="ambient-glow bg-dajinniao-gold w-[400px] h-[400px] top-[40%] left-[30%] opacity-10"></div>
@@ -356,8 +539,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-8 overflow-hidden z-10">
-        <div class="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-1 sm:grid-cols-2 gap-12 items-center">
+    <section id="heroSection" class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-8 overflow-hidden z-10">
+        <!-- Shader / Video Background -->
+        <div class="hero-video-bg">
+            <canvas id="shaderCanvas"></canvas>
+            <div class="hero-light-beams">
+                <div class="hero-beam"></div>
+                <div class="hero-beam"></div>
+                <div class="hero-beam"></div>
+                <div class="hero-beam"></div>
+            </div>
+            <div class="hero-sweep"></div>
+            <div class="hero-dark-overlay"></div>
+        </div>
+        <div class="w-full max-w-7xl mx-auto px-8 md:px-16 lg:px-24 grid grid-cols-1 sm:grid-cols-2 gap-12 items-center relative z-[2]">
             <div class="hero-content space-y-5 lg:space-y-8 relative z-10 order-2 sm:order-1">
                 <div class="inline-flex items-center px-4 py-1 glass-panel rounded-full border border-dajinniao-orange/30 text-dajinniao-orange text-xs lg:text-sm font-bold tracking-widest uppercase mb-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-dajinniao-orange mr-2 animate-pulse"></span>
@@ -368,7 +563,7 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-dajinniao-orange to-dajinniao-yellow neon-text-orange">Efficient Expansion</span>
                 </h1>
                 <p class="text-gray-400 text-sm sm:text-xs md:text-sm lg:text-lg xl:text-xl font-medium max-w-lg leading-relaxed" data-i18n="hero_desc">
-                    Supports lightning-fast USDT/USDC top-ups, seamlessly binding with Alipay, WeChat Pay, and Apple Pay. Unlock global subscriptions like ChatGPT Plus instantly.
+                    Supports lightning-fast USDT/USDC top-ups, seamlessly binding with Apple Pay and major global payment platforms. Unlock global subscriptions like ChatGPT Plus instantly.
                 </p>
                 <div class="pt-4">
                     <button onclick="window.location.href='https://www.dajinniao.com/app/login?redirect=/index'" class="px-8 py-4 bg-transparent border-2 border-dajinniao-orange text-dajinniao-orange font-orbitron font-bold tracking-wider rounded-lg neon-box-orange hover:bg-dajinniao-orange hover:text-black transition-all duration-300 transform hover:scale-105" data-i18n="hero_btn">
@@ -379,7 +574,7 @@
 
             <div class="hero-visual relative w-full h-[400px] flex justify-center items-center perspective-1000 order-1 sm:order-2">
                 <div class="mouse-tracking-card z-20 absolute pointer-events-auto" style="transform-style: preserve-3d;">
-                    <div class="hero-card-anim relative w-[340px] h-[210px] sm:w-[380px] sm:h-[220px] rounded-2xl glass-panel p-6 flex flex-col justify-between overflow-hidden shadow-[0_0_50px_rgba(245,158,11,0.2)] border-dajinniao-orange/50">
+                    <div class="hero-card-anim relative w-[340px] h-[210px] sm:w-[380px] sm:h-[220px] rounded-2xl glass-panel p-6 flex flex-col justify-between overflow-hidden shadow-[0_0_50px_rgba(196,169,122,0.25)] border-dajinniao-orange/50">
                         <div class="flex justify-between items-start">
                             <div class="font-orbitron font-bold text-xl tracking-widest text-white/90">JINNIAOPAY</div>
                             <svg class="w-8 h-8 text-dajinniao-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.906 14.142 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
@@ -416,7 +611,7 @@
                         </div>
                         <div class="flip-card-back glass-panel bg-dajinniao-dark border-dajinniao-orange flex flex-col items-center justify-center p-8 text-center neon-box-orange">
                             <h3 class="font-orbitron text-lg font-bold text-dajinniao-orange mb-4">LOCAL PAYMENTS</h3>
-                            <p class="text-gray-300 text-xs mb-6 leading-relaxed" data-i18n="feat_1_back_desc">Perfectly supports binding with Alipay, WeChat Pay, Meituan and other local daily consumption scenarios.</p>
+                            <p class="text-gray-300 text-xs mb-6 leading-relaxed" data-i18n="feat_1_back_desc">Supports binding with mainstream digital payment platforms for everyday purchases, subscriptions, and online transactions.</p>
                             <button class="px-4 py-2 border border-dajinniao-orange text-dajinniao-orange text-xs font-bold rounded hover:bg-dajinniao-orange hover:text-black transition-colors" data-i18n="feat_1_btn">Binding Tutorial</button>
                         </div>
                     </div>
@@ -493,7 +688,7 @@
                 <div class="timeline-item flex flex-col md:flex-row items-center justify-between w-full">
                     <div class="md:w-5/12 text-center md:text-right md:pr-8 mb-4 md:mb-0">
                         <h3 class="font-orbitron text-xl font-bold text-dajinniao-gold mb-1" data-i18n="time_3_title">3. Global Spending</h3>
-                        <p class="text-gray-400 text-sm" data-i18n="time_3_desc">Bind to Apple Pay, Alipay, or spend directly on websites.</p>
+                        <p class="text-gray-400 text-sm" data-i18n="time_3_desc">Bind to Apple Pay or spend directly on websites worldwide.</p>
                     </div>
                     <div class="z-20 flex items-center justify-center bg-dajinniao-black w-10 h-10 rounded-full border-2 border-dajinniao-gold text-dajinniao-gold font-bold">3</div>
                     <div class="md:w-5/12 md:pl-8 text-left hidden md:block">
@@ -548,6 +743,72 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+            <div class="text-center mb-14 section-header">
+                <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-4 neon-text-orange" data-i18n="test_title">Real User Voices</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-dajinniao-yellow to-dajinniao-orange mx-auto rounded-full"></div>
+                <p class="text-gray-400 text-sm md:text-base mt-5 max-w-2xl mx-auto leading-relaxed" data-i18n="test_desc">Trusted by crypto traders, cross-border merchants, and ad buyers worldwide.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Crypto Trader -->
+                <div class="testimonial-card glass-panel rounded-2xl p-6 border border-dajinniao-orange/25">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="testimonial-avatar bg-dajinniao-orange/15 border border-dajinniao-orange/50 text-dajinniao-orange">RC</div>
+                        <div>
+                            <div class="font-orbitron text-sm font-bold text-white">Ray C.</div>
+                            <div class="text-xs text-gray-400 mt-0.5" data-i18n="test_1_role">Crypto Trader · HK</div>
+                        </div>
+                    </div>
+                    <div class="star-row mb-3">★★★★★</div>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="test_1_quote">&ldquo;OpenSea payments and Coinbase card binding all passed first try. USDT top-up landed in seconds — exactly what I needed.&rdquo;</p>
+                </div>
+
+                <!-- E-commerce Merchant -->
+                <div class="testimonial-card glass-panel rounded-2xl p-6 border border-dajinniao-yellow/25">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="testimonial-avatar bg-dajinniao-yellow/15 border border-dajinniao-yellow/50 text-dajinniao-yellow">ST</div>
+                        <div>
+                            <div class="font-orbitron text-sm font-bold text-white">Sophie T.</div>
+                            <div class="text-xs text-gray-400 mt-0.5" data-i18n="test_2_role">Shopify Merchant · SG</div>
+                        </div>
+                    </div>
+                    <div class="star-row mb-3">★★★★★</div>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="test_2_quote">&ldquo;Running an independent Shopify store — this card handles monthly fees and supplier payments effortlessly. The fee transparency is a huge plus.&rdquo;</p>
+                </div>
+
+                <!-- Media Buyer -->
+                <div class="testimonial-card glass-panel rounded-2xl p-6 border border-dajinniao-gold/25">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="testimonial-avatar bg-dajinniao-gold/15 border border-dajinniao-gold/50 text-dajinniao-gold">MW</div>
+                        <div>
+                            <div class="font-orbitron text-sm font-bold text-white">Mark W.</div>
+                            <div class="text-xs text-gray-400 mt-0.5" data-i18n="test_3_role">Media Buyer · US</div>
+                        </div>
+                    </div>
+                    <div class="star-row mb-3">★★★★★</div>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="test_3_quote">&ldquo;Running Meta and Google ads simultaneously. One card per channel keeps my limits clean — risk-control disruptions dropped significantly.&rdquo;</p>
+                </div>
+
+                <!-- Digital Creator -->
+                <div class="testimonial-card glass-panel rounded-2xl p-6 border border-dajinniao-orange/20">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="testimonial-avatar bg-gradient-to-br from-dajinniao-orange/20 to-dajinniao-gold/20 border border-dajinniao-orange/40 text-dajinniao-orange">LK</div>
+                        <div>
+                            <div class="font-orbitron text-sm font-bold text-white">Lena K.</div>
+                            <div class="text-xs text-gray-400 mt-0.5" data-i18n="test_4_role">Digital Creator · TW</div>
+                        </div>
+                    </div>
+                    <div class="star-row mb-3">★★★★★</div>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="test_4_quote">&ldquo;ChatGPT Plus, Midjourney, Claude Pro — all on one card, zero declines. Saved me so much time managing multiple subscriptions.&rdquo;</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -621,12 +882,12 @@
                 nav_features: "Features", nav_process: "Process", nav_faq: "FAQ", nav_login: "Register / Login",
                 hero_tag: "Global Payment · Seamlessly Connected",
                 hero_title: "Borderless Payment <br>\n<span class=\"text-transparent bg-clip-text bg-gradient-to-r from-dajinniao-orange to-dajinniao-yellow neon-text-orange\">Efficient Expansion</span>",
-                hero_desc: "Supports lightning-fast USDT/USDC top-ups, seamlessly binding with Alipay, WeChat Pay, and Apple Pay. Easily unlock global subscriptions like ChatGPT Plus instantly.",
+                hero_desc: "Supports lightning-fast USDT/USDC top-ups, seamlessly binding with Apple Pay and major global payment platforms. Easily unlock global subscriptions like ChatGPT Plus instantly.",
                 hero_btn: "Get Card Now",
                 card_guest: "GUEST USER",
                 feat_title: "Core Advantages",
                 feat_1_title: "Local Daily Consumption", feat_1_desc: "Seamlessly bind mainstream third-party payment platforms",
-                feat_1_back_desc: "Perfectly supports binding with Alipay, WeChat Pay, Meituan and other local daily consumption scenarios.",
+                feat_1_back_desc: "Supports binding with mainstream digital payment platforms for everyday purchases, subscriptions, and online transactions.",
                 feat_1_btn: "Binding Tutorial",
                 feat_2_title: "Global Subscriptions", feat_2_desc: "Easily unlock premium global digital services",
                 feat_2_back_desc: "Supports ChatGPT Plus, Midjourney, Netflix, Spotify, and various global e-commerce platforms.",
@@ -637,25 +898,35 @@
                 time_title: "Simple Process",
                 time_1_title: "1. Quick Registration", time_1_desc: "Register with phone or email. Minimal KYC approved in minutes.",
                 time_2_title: "2. Digital Top-up", time_2_desc: "Transfer USDT/USDC. Funds arrive in seconds after confirmation.",
-                time_3_title: "3. Global Spending", time_3_desc: "Bind to Apple Pay, Alipay, or spend directly on websites.",
+                time_3_title: "3. Global Spending", time_3_desc: "Bind to Apple Pay or spend directly on websites worldwide.",
                 trust_title: "Trust & Credibility",
                 trust_desc: "Built for cross-border teams that care about stability, transparency, and controllable risk.",
                 trust_1_title: "Layered Risk Control", trust_1_desc: "Transaction rules, velocity limits, and anomaly alerts work together to reduce payment failures.",
                 trust_2_title: "Transparent Fee Logic", trust_2_desc: "Clear breakdown of funding, FX, and settlement costs so every spend flow is auditable.",
                 trust_3_title: "Operational Security", trust_3_desc: "Role-based permissions and action logs help teams manage cards, limits, and approvals safely.",
-                trust_4_title: "Official Knowledge Sources", trust_4_desc: "FAQ guidance is based on official documents from mainstream cross-border payment platforms."
+                trust_4_title: "Official Knowledge Sources", trust_4_desc: "FAQ guidance is based on official documents from mainstream cross-border payment platforms.",
+                test_title: "Real User Voices",
+                test_desc: "Trusted by crypto traders, cross-border merchants, and ad buyers worldwide.",
+                test_1_role: "Crypto Trader · HK",
+                test_1_quote: "&ldquo;OpenSea payments and Coinbase card binding all passed first try. USDT top-up landed in seconds — exactly what I needed.&rdquo;",
+                test_2_role: "Shopify Merchant · SG",
+                test_2_quote: "&ldquo;Running an independent Shopify store — this card handles monthly fees and supplier payments effortlessly. The fee transparency is a huge plus.&rdquo;",
+                test_3_role: "Media Buyer · US",
+                test_3_quote: "&ldquo;Running Meta and Google ads simultaneously. One card per channel keeps my limits clean — risk-control disruptions dropped significantly.&rdquo;",
+                test_4_role: "Digital Creator · TW",
+                test_4_quote: "&ldquo;ChatGPT Plus, Midjourney, Claude Pro — all on one card, zero declines. Saved me so much time managing multiple subscriptions.&rdquo;"
             },
             'zh-CN': {
                 page_title: "JINNIAOPAY支付 | 虚拟信用卡",
                 nav_features: "核心优势", nav_process: "开卡流程", nav_faq: "常见问题", nav_login: "立即注册 / 登录",
                 hero_tag: "全球支付 · 畅通无阻",
                 hero_title: "无界支付 <br>\n<span class=\"text-transparent bg-clip-text bg-gradient-to-r from-dajinniao-orange to-dajinniao-yellow neon-text-orange\">高效出海</span>",
-                hero_desc: "支持 USDT/USDC 极速充值，完美绑定支付宝、微信及 Apple Pay。轻松解锁 ChatGPT Plus 等海外订阅服务，即刻开启全场景消费时代。",
+                hero_desc: "支持 USDT/USDC 极速充值，完美绑定 Apple Pay 及主流全球支付平台。轻松解锁 ChatGPT Plus 等海外订阅服务，即刻开启全场景消费时代。",
                 hero_btn: "立即开卡",
                 card_guest: "访客用户",
                 feat_title: "核心优势",
                 feat_1_title: "国内日常消费", feat_1_desc: "无缝绑定主流第三方支付平台",
-                feat_1_back_desc: "完美支持绑定支付宝 (Alipay)、微信支付 (WeChat Pay)、美团等国内日常消费场景。",
+                feat_1_back_desc: "支持绑定主流数字支付平台，覆盖日常消费、订阅及线上交易场景。",
                 feat_1_btn: "查看绑定教程",
                 feat_2_title: "海外服务订阅", feat_2_desc: "轻松解锁全球优质数字服务",
                 feat_2_back_desc: "支持 ChatGPT Plus、Midjourney、Netflix、Spotify 及各类海外电商平台消费。",
@@ -672,19 +943,29 @@
                 trust_1_title: "多层风控体系", trust_1_desc: "通过交易规则、频率限制与异常预警协同，降低拒付与误触风控概率。",
                 trust_2_title: "费率透明可追踪", trust_2_desc: "充值、汇兑、结算费用拆分清晰，便于财务复盘与审计。",
                 trust_3_title: "权限与操作安全", trust_3_desc: "支持角色化权限与关键操作留痕，团队协作更安全。",
-                trust_4_title: "官方文档驱动知识库", trust_4_desc: "FAQ 回答基于主流跨境支付平台官方资料，减少信息偏差。"
+                trust_4_title: "官方文档驱动知识库", trust_4_desc: "FAQ 回答基于主流跨境支付平台官方资料，减少信息偏差。",
+                test_title: "真实用户心声",
+                test_desc: "来自全球加密交易者、跨境电商卖家及广告买量团队的真实反馈。",
+                test_1_role: "加密交易者 · 香港",
+                test_1_quote: "&ldquo;OpenSea 支付和 Coinbase 卡绑定一次就过了。USDT 充值秒到账，完全满足我的需求。&rdquo;",
+                test_2_role: "Shopify 卖家 · 新加坡",
+                test_2_quote: "&ldquo;独立站的月费和供应商付款全靠这张卡，费率透明，账单一目了然，省心太多了。&rdquo;",
+                test_3_role: "广告买量 · 美国",
+                test_3_quote: "&ldquo;同时跑 Meta 和 Google 广告，一渠道一卡让限额干净，风控误触率明显下降。&rdquo;",
+                test_4_role: "数字创作者 · 台湾",
+                test_4_quote: "&ldquo;ChatGPT Plus、Midjourney、Claude Pro 全在一张卡上，零拒付，管理订阅省了很多时间。&rdquo;"
             },
             'zh-TW': {
                 page_title: "JINNIAOPAY支付 | 虛擬信用卡",
                 nav_features: "核心優勢", nav_process: "開卡流程", nav_faq: "常見問題", nav_login: "立即註冊 / 登入",
                 hero_tag: "全球支付 · 暢通無阻",
                 hero_title: "無界支付 <br>\n<span class=\"text-transparent bg-clip-text bg-gradient-to-r from-dajinniao-orange to-dajinniao-yellow neon-text-orange\">高效出海</span>",
-                hero_desc: "支援 USDT/USDC 極速儲值，完美綁定支付寶、微信及 Apple Pay。",
+                hero_desc: "支援 USDT/USDC 極速儲值，完美綁定 Apple Pay 及主流全球支付平台。",
                 hero_btn: "立即開卡",
                 card_guest: "訪客用戶",
                 feat_title: "核心優勢",
                 feat_1_title: "國內日常消費", feat_1_desc: "無縫綁定主流第三方支付平台",
-                feat_1_back_desc: "完美支援綁定支付寶 (Alipay)、微信支付 (WeChat Pay)、美團等國內日常消費場景。",
+                feat_1_back_desc: "支援綁定主流數位支付平台，覆蓋日常消費、訂閱及線上交易場景。",
                 feat_1_btn: "查看綁定教學",
                 feat_2_title: "海外服務訂閱", feat_2_desc: "輕鬆解鎖全球優質數位服務",
                 feat_2_back_desc: "支援 ChatGPT Plus、Midjourney、Netflix、Spotify 及各類海外電商平台。",
@@ -701,19 +982,29 @@
                 trust_1_title: "多層風控體系", trust_1_desc: "透過交易規則、頻率限制與異常預警協同，降低拒付與誤觸風控機率。",
                 trust_2_title: "費率透明可追蹤", trust_2_desc: "儲值、換匯、結算費用拆分清晰，便於財務復盤與審計。",
                 trust_3_title: "權限與操作安全", trust_3_desc: "支援角色化權限與關鍵操作留痕，團隊協作更安全。",
-                trust_4_title: "官方文件驅動知識庫", trust_4_desc: "FAQ 回答基於主流跨境支付平台官方資料，降低資訊偏差。"
+                trust_4_title: "官方文件驅動知識庫", trust_4_desc: "FAQ 回答基於主流跨境支付平台官方資料，降低資訊偏差。",
+                test_title: "真實用戶心聲",
+                test_desc: "來自全球加密交易者、跨境電商賣家及廣告買量團隊的真實回饋。",
+                test_1_role: "加密交易者 · 香港",
+                test_1_quote: "&ldquo;OpenSea 支付和 Coinbase 卡綁定一次就過了。USDT 儲值秒到帳，完全符合我的需求。&rdquo;",
+                test_2_role: "Shopify 賣家 · 新加坡",
+                test_2_quote: "&ldquo;獨立站的月費和供應商付款全靠這張卡，費率透明，帳單一目了然，省心很多。&rdquo;",
+                test_3_role: "廣告買量 · 美國",
+                test_3_quote: "&ldquo;同時跑 Meta 和 Google 廣告，一渠道一卡讓限額乾淨，風控誤觸率明顯下降。&rdquo;",
+                test_4_role: "數位創作者 · 台灣",
+                test_4_quote: "&ldquo;ChatGPT Plus、Midjourney、Claude Pro 全在一張卡上，零拒付，管理訂閱省了很多時間。&rdquo;"
             },
             vi: {
                 page_title: "JINNIAOPAY | Thẻ tín dụng ảo",
                 nav_features: "Tính năng", nav_process: "Quy trình", nav_faq: "Câu hỏi", nav_login: "Đăng ký",
                 hero_tag: "Thanh toán toàn cầu · Kết nối liền mạch",
                 hero_title: "Thanh toán không biên giới <br>\n<span class=\"text-transparent bg-clip-text bg-gradient-to-r from-dajinniao-orange to-dajinniao-yellow neon-text-orange\">Mở rộng hiệu quả</span>",
-                hero_desc: "Hỗ trợ nạp tiền USDT/USDC siêu tốc, liên kết hoàn hảo với Alipay, WeChat Pay và Apple Pay.",
+                hero_desc: "Hỗ trợ nạp tiền USDT/USDC siêu tốc, liên kết hoàn hảo với Apple Pay và các nền tảng thanh toán toàn cầu.",
                 hero_btn: "Nhận thẻ ngay",
                 card_guest: "KHÁCH HÀNG",
                 feat_title: "Lợi thế cốt lõi",
                 feat_1_title: "Tiêu dùng hàng ngày", feat_1_desc: "Liên kết mượt mà nền tảng thanh toán bên thứ ba",
-                feat_1_back_desc: "Hỗ trợ hoàn hảo liên kết với Alipay, WeChat Pay, Meituan.",
+                feat_1_back_desc: "Hỗ trợ liên kết với các nền tảng thanh toán số phổ biến cho giao dịch hàng ngày.",
                 feat_1_btn: "Hướng dẫn liên kết",
                 feat_2_title: "Đăng ký toàn cầu", feat_2_desc: "Dễ dàng mở khóa các dịch vụ số cao cấp",
                 feat_2_back_desc: "Hỗ trợ ChatGPT Plus, Midjourney, Netflix, Spotify.",
@@ -730,7 +1021,17 @@
                 trust_1_title: "Kiem soat Rui ro Nhieu Lop", trust_1_desc: "Quy tac giao dich, gioi han tan suat va canh bao bat thuong giup giam ti le thanh toan that bai.",
                 trust_2_title: "Phi Minh bach", trust_2_desc: "Phi nap, FX va doi soat duoc tach ro rang de doi ngu tai chinh de kiem tra.",
                 trust_3_title: "An toan Van hanh", trust_3_desc: "Phan quyen theo vai tro va nhat ky thao tac giup quan ly the, han muc va phe duyet an toan hon.",
-                trust_4_title: "Nguon Kien thuc Chinh thuc", trust_4_desc: "Noi dung FAQ duoc tong hop tu tai lieu chinh thuc cua cac nen tang thanh toan xuyen bien gioi pho bien."
+                trust_4_title: "Nguon Kien thuc Chinh thuc", trust_4_desc: "Noi dung FAQ duoc tong hop tu tai lieu chinh thuc cua cac nen tang thanh toan xuyen bien gioi pho bien.",
+                test_title: "Người Dùng Thực Nói Gì",
+                test_desc: "Được tin dùng bởi các trader crypto, merchant thương mại điện tử và media buyer toàn cầu.",
+                test_1_role: "Crypto Trader · HK",
+                test_1_quote: "&ldquo;Thanh toán OpenSea và bind thẻ Coinbase đều pass ngay lần đầu. Nạp USDT về trong tích tắc — đúng thứ tôi cần.&rdquo;",
+                test_2_role: "Shopify Merchant · SG",
+                test_2_quote: "&ldquo;Chạy store Shopify độc lập — thẻ này xử lý phí hàng tháng và thanh toán nhà cung cấp rất mượt. Phí minh bạch là điểm cộng lớn.&rdquo;",
+                test_3_role: "Media Buyer · US",
+                test_3_quote: "&ldquo;Chạy Meta và Google Ads song song. Mỗi kênh một thẻ giúp hạn mức sạch — tỉ lệ bị risk-control giảm đáng kể.&rdquo;",
+                test_4_role: "Digital Creator · TW",
+                test_4_quote: "&ldquo;ChatGPT Plus, Midjourney, Claude Pro — tất cả trên một thẻ, không bị từ chối lần nào. Tiết kiệm rất nhiều thời gian quản lý subscription.&rdquo;"
             }
         };
 
@@ -1255,7 +1556,7 @@
                 locale.quickQuestions.forEach(question => {
                     const chip = document.createElement("button");
                     chip.type = "button";
-                    chip.className = "px-2.5 py-1.5 text-xs rounded-full border border-dajinniao-orange/35 text-dajinniao-yellow hover:bg-dajinniao-orange hover:text-black transition-colors";
+                    chip.className = "px-2.5 py-1.5 text-xs rounded-full border border-dajinniao-orange/40 text-dajinniao-gold hover:bg-dajinniao-orange hover:text-black transition-colors";
                     chip.textContent = question;
                     chip.addEventListener("click", () => askSupport(question));
                     quickEl.appendChild(chip);
@@ -1345,7 +1646,7 @@
                         vx: (Math.random() - 0.5) * 0.5,
                         vy: (Math.random() - 0.5) * 0.5,
                         r: Math.random() * 1.5 + 0.5,
-                        color: Math.random() > 0.5 ? '#F59E0B' : '#FBBF24'
+                        color: Math.random() > 0.5 ? '#E8961E' : '#C27B0A'
                     });
                 }
             }
@@ -1404,6 +1705,21 @@
                     delay: index * 0.06
                 });
             });
+            gsap.utils.toArray('.testimonial-card').forEach((item, index) => {
+                gsap.from(item, {
+                    scrollTrigger: { trigger: item, start: "top 92%" },
+                    opacity: 0,
+                    y: 32,
+                    duration: 0.7,
+                    delay: index * 0.10
+                });
+            });
+
+            // Disable shader on mobile to protect load performance
+            if (window.innerWidth < 768) {
+                const sc = document.getElementById('shaderCanvas');
+                if (sc) sc.remove();
+            }
         });
 
         // Mouse interaction for 3D card
@@ -1424,6 +1740,132 @@
                 nav.classList.add('py-4');
             }
         });
+
+        // ===== HERO SHADER BACKGROUND (WebGL2) =====
+        (function initHeroShader() {
+            const canvas = document.getElementById('shaderCanvas');
+            if (!canvas) return;
+            const heroSection = document.getElementById('heroSection');
+            if (!heroSection) return;
+
+            let gl;
+            try { gl = canvas.getContext('webgl2'); } catch(e) {}
+            if (!gl) { canvas.style.display = 'none'; return; }
+
+            const VERT = `#version 300 es
+precision highp float;
+in vec4 position;
+void main(){gl_Position=position;}`;
+
+            const FRAG = `#version 300 es
+precision highp float;
+out vec4 O;
+uniform vec2 resolution;
+uniform float time;
+#define FC gl_FragCoord.xy
+#define T time
+#define R resolution
+#define MN min(R.x,R.y)
+float rnd(vec2 p){
+  p=fract(p*vec2(12.9898,78.233));
+  p+=dot(p,p+34.56);
+  return fract(p.x*p.y);
+}
+float noise(in vec2 p){
+  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
+  float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);
+  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);
+}
+float fbm(vec2 p){
+  float t=.0,a=1.;
+  mat2 m=mat2(1.,-.5,.2,1.2);
+  for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
+  return t;
+}
+float clouds(vec2 p){
+  float d=1.,t=.0;
+  for(float i=.0;i<3.;i++){
+    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
+    t=mix(t,d,a);d=a;p*=2./(i+1.);
+  }
+  return t;
+}
+void main(void){
+  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+  vec3 col=vec3(0);
+  float bg=clouds(vec2(st.x+T*.5,-st.y));
+  uv*=1.-.3*(sin(T*.2)*.5+.5);
+  for(float i=1.;i<12.;i++){
+    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
+    vec2 p=uv;
+    float d=length(p);
+    col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
+    float b=noise(i+p+bg*1.731);
+    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
+    col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+  }
+  O=vec4(col,1);
+}`;
+
+            const verts = new Float32Array([-1,1,-1,-1,1,1,1,-1]);
+
+            function makeShader(type, src) {
+                const sh = gl.createShader(type);
+                gl.shaderSource(sh, src);
+                gl.compileShader(sh);
+                if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+                    console.warn('[HeroShader] compile:', gl.getShaderInfoLog(sh));
+                    return null;
+                }
+                return sh;
+            }
+
+            const vs = makeShader(gl.VERTEX_SHADER, VERT);
+            const fs = makeShader(gl.FRAGMENT_SHADER, FRAG);
+            if (!vs || !fs) { canvas.style.display = 'none'; return; }
+
+            const prog = gl.createProgram();
+            gl.attachShader(prog, vs);
+            gl.attachShader(prog, fs);
+            gl.linkProgram(prog);
+            if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+                console.warn('[HeroShader] link:', gl.getProgramInfoLog(prog));
+                canvas.style.display = 'none'; return;
+            }
+
+            const buf = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+            gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+            const posLoc = gl.getAttribLocation(prog, 'position');
+            gl.enableVertexAttribArray(posLoc);
+            gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+            const uRes  = gl.getUniformLocation(prog, 'resolution');
+            const uTime = gl.getUniformLocation(prog, 'time');
+
+            function resize() {
+                const dpr  = Math.max(1, 0.5 * window.devicePixelRatio);
+                const rect = heroSection.getBoundingClientRect();
+                canvas.width  = Math.round(rect.width  * dpr);
+                canvas.height = Math.round(rect.height * dpr);
+                gl.viewport(0, 0, canvas.width, canvas.height);
+            }
+
+            function render(now) {
+                gl.clearColor(0, 0, 0, 1);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+                gl.useProgram(prog);
+                gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                gl.uniform2f(uRes, canvas.width, canvas.height);
+                gl.uniform1f(uTime, now * 1e-3);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+            }
+
+            resize();
+            window.addEventListener('resize', resize);
+            requestAnimationFrame(render);
+        })();
     </script>
 </body>
 </html>
