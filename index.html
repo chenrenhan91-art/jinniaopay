@@ -1627,6 +1627,20 @@
             initSupportAssistant();
             switchLanguage(savedLang);
 
+            const navbarLogo = document.querySelector('nav img[alt="RICHXPAY"]');
+            const heroCardLogo = document.querySelector('.hero-card-anim img[alt="RICHXPAY"]');
+            const footerLogo = document.querySelector('footer img[alt="RICHXPAY"]');
+
+            if (navbarLogo) {
+                navbarLogo.src = '/logo-main.png';
+            }
+            if (heroCardLogo) {
+                heroCardLogo.src = '/logo-card.png';
+            }
+            if (footerLogo) {
+                footerLogo.src = '/logo-footer.png';
+            }
+
             // Particles logic
             const canvas = document.getElementById('particleCanvas');
             const ctx = canvas.getContext('2d');
