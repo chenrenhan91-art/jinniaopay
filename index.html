@@ -506,16 +506,9 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-panel border-b-0 border-white/5 py-4 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between items-center">
-            <div class="font-orbitron font-bold text-xl sm:text-2xl tracking-wider cursor-pointer group flex items-center">
-                <svg class="w-7 h-7 sm:w-10 sm:h-10 mr-2 sm:mr-3 text-dajinniao-orange transition-transform duration-500 group-hover:rotate-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 33 32 A 34 34 0 1 1 43 80" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
-                    <circle cx="58" cy="44" r="13.5" fill="currentColor"/>
-                    <path d="M 63 36 A 8 8 0 0 1 70 44" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                    <rect x="12" y="46" width="26" height="7" rx="1" fill="currentColor"/>
-                    <rect x="18" y="57" width="19" height="7" rx="1" fill="currentColor"/>
-                    <rect x="24" y="68" width="14" height="7" rx="1" fill="currentColor"/>
-                </svg>
-                <span class="text-white group-hover:neon-text-orange transition-all">RICHX</span><span class="text-dajinniao-orange group-hover:text-dajinniao-yellow transition-all">PAY</span>
+            <div class="cursor-pointer group flex items-center">
+                <img src="richxpay_%E7%94%BB%E6%9D%BF%201.png" alt="RICHXPAY"
+                     class="h-9 sm:h-11 w-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 drop-shadow-sm">
             </div>
             
             <div class="hidden md:flex space-x-8 font-semibold text-sm tracking-widest uppercase">
@@ -581,7 +574,8 @@
                 <div class="mouse-tracking-card z-20 absolute pointer-events-auto" style="transform-style: preserve-3d;">
                     <div class="hero-card-anim relative w-[90vw] max-w-[340px] h-[200px] sm:w-[380px] sm:max-w-none sm:h-[220px] rounded-2xl glass-panel p-5 sm:p-6 flex flex-col justify-between overflow-hidden shadow-[0_0_50px_rgba(196,169,122,0.25)] border-dajinniao-orange/50">
                         <div class="flex justify-between items-start">
-                            <div class="font-orbitron font-bold text-xl tracking-widest text-white/90">RICHXPAY</div>
+                            <img src="richxpay_%E7%94%BB%E6%9D%BF%201%20%E5%89%AF%E6%9C%AC%202.png" alt="RICHXPAY"
+                                 class="h-7 w-auto object-contain brightness-0 invert opacity-90">
                             <svg class="w-8 h-8 text-dajinniao-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.906 14.142 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path></svg>
                         </div>
                         <div class="font-orbitron text-xl tracking-[0.2em] text-white/90">**** **** **** 8084</div>
@@ -820,8 +814,10 @@
     <!-- Footer -->
     <footer id="footer" class="border-t border-white/5 bg-black/80 py-8 relative z-10">
         <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="font-orbitron font-bold text-xl tracking-wider text-gray-600">
-                RICHX<span class="text-dajinniao-orange/40">PAY</span> © 2026
+            <div class="flex items-center gap-3 font-orbitron text-xl tracking-wider text-gray-500">
+                <img src="richxpay_%E7%94%BB%E6%9D%BF%201%20%E5%89%AF%E6%9C%AC.png" alt="RICHXPAY"
+                     class="h-7 w-auto object-contain opacity-45 grayscale hover:opacity-70 hover:grayscale-0 transition-all duration-300">
+                <span>© 2026</span>
             </div>
             <div class="flex space-x-8 text-sm font-medium text-gray-500">
                 <a href="#" class="hover:text-dajinniao-orange transition-colors">Privacy</a>
@@ -1026,7 +1022,7 @@
                 trust_1_title: "Kiem soat Rui ro Nhieu Lop", trust_1_desc: "Quy tac giao dich, gioi han tan suat va canh bao bat thuong giup giam ti le thanh toan that bai.",
                 trust_2_title: "Phi Minh bach", trust_2_desc: "Phi nap, FX va doi soat duoc tach ro rang de doi ngu tai chinh de kiem tra.",
                 trust_3_title: "An toan Van hanh", trust_3_desc: "Phan quyen theo vai tro va nhat ky thao tac giup quan ly the, han muc va phe duyet an toan hon.",
-                trust_4_title: "Nguon Kien thuc Chinh thuc", trust_4_desc: "Noi dung FAQ duoc tong hop tu tai lieu chinh thuc cua cac nen tang thanh toan xuyen bien gioi pho bien.",
+                trust_4_title: "Nguon Kien thuc Chinh thuc", trust_4_desc: "Noi dung FAQ duoc tong hop tu tai lieu chinh thuc cua RichXPay.",
                 test_title: "Người Dùng Thực Nói Gì",
                 test_desc: "Được tin dùng bởi các trader crypto, merchant thương mại điện tử và media buyer toàn cầu.",
                 test_1_role: "Crypto Trader · HK",
@@ -1049,19 +1045,19 @@
                 tooltip: "FAQ",
                 panelTitle: "CROSS-BORDER FAQ",
                 panelSubtitle: "Official FAQ Digest · Updated on 2026-03-04",
-                inputPlaceholder: "Ask: Can virtual cards be used for Meta ads?",
+                inputPlaceholder: "Ask: e.g. How do I top up with USDT on RichXPay?",
                 send: "Send",
-                typing: "Gathering official FAQ...",
-                welcome: "Hi, I am your cross-border payment FAQ assistant.\nI can help with virtual/physical cards, cross-border fees, ad spend, and decline troubleshooting.",
+                typing: "Looking up RichXPay FAQ...",
+                welcome: "Hi, I am your RichXPay FAQ assistant.\nI can help with USDT/USDC top-up, Apple Pay binding, global subscriptions, fees, and payment decline troubleshooting.",
                 quickQuestions: [
-                    "How should I choose virtual vs physical cards?",
-                    "What card setup is better for Meta/Google ads?",
-                    "What fees are common in cross-border payments?",
-                    "What should I check first after a payment decline?"
+                    "How do I top up with USDT/USDC?",
+                    "Can I bind RichXPay to Apple Pay?",
+                    "What global subscriptions are supported?",
+                    "What should I check after a payment decline?"
                 ],
-                fallback: "Quick general answer:\n1. For online payments and ad spend, virtual cards are usually better.\n2. For POS and ATM use, physical cards are usually better.\n3. Check three fee buckets first: transaction fee, FX fee, and withdrawal/refund fee.\nYou can add platform + scenario (for example: Wise + ad spend) for a more precise answer.",
-                introWithPlatform: "Based on the platform(s) you mentioned ({platforms}), here is a quick answer:",
-                introGeneric: "Based on official FAQ from major cross-border payment platforms, here is a quick answer:",
+                fallback: "Quick RichXPay answer:\n1. Top up via USDT/USDC on TRC20/ERC20 — funds arrive within seconds.\n2. Virtual cards can be linked to Apple Pay for online and in-store use.\n3. Supports ChatGPT Plus, Midjourney, Netflix, Spotify, Meta/Google Ads, and more.\n4. If a payment fails, check balance, card limits, and 3DS verification status.",
+                introWithPlatform: "Based on RichXPay FAQ ({platforms}), here is a quick answer:",
+                introGeneric: "Based on RichXPay official FAQ, here is a quick answer:",
                 adTip: "Ad-spend tip: use one card per channel, set independent limits, and keep a backup card to reduce disruption from risk-control declines.",
                 note: "Note: availability and fees vary by region, account tier, and compliance status. Final rules in your own account dashboard prevail.",
                 sourceFallback: "Source",
@@ -1074,21 +1070,21 @@
                 tooltip: "FAQ",
                 panelTitle: "跨境支付 FAQ",
                 panelSubtitle: "官方 FAQ 汇总 · 更新于 2026-03-04",
-                inputPlaceholder: "输入问题：如“虚拟卡能跑 Meta 广告吗？”",
+                inputPlaceholder: "输入问题：如“RichXPay 怎么用 USDT 充値？”",
                 send: "发送",
-                typing: "正在整理官方 FAQ...",
-                welcome: "你好，我是跨境支付 FAQ 助手。\n我可以回答：虚拟卡/实体卡、跨境支付费用、广告投放、支付失败排查等问题。",
+                typing: "正在查询 RichXPay FAQ...",
+                welcome: "你好，我是 RichXPay FAQ 助手。\n我可以回答： USDT/USDC 充値、Apple Pay 绑定、全球订阅、费率说明、支付失败排查等问题。",
                 quickQuestions: [
-                    "虚拟卡和实体卡怎么选？",
-                    "做 Meta/Google 广告投放，哪类卡更稳？",
-                    "跨境支付常见费用有哪些？",
+                    "如何用 USDT/USDC 充値？",
+                    "RichXPay 能绑定 Apple Pay 吗？",
+                    "支持哪些全球订阅服务？",
                     "支付失败一般先排查什么？"
                 ],
-                fallback: "我先给你通用结论：\n1. 线上支付/广告投放优先虚拟卡，按渠道拆卡并单独设限额。\n2. 线下 POS 与 ATM 场景优先实体卡。\n3. 跨境支付先确认三类费用：交易费、汇兑费、提现/退款费。\n你也可以继续补充：目标平台（如 Wise/Payoneer）+ 场景（广告/订阅/供应商付款）。",
-                introWithPlatform: "按你提到的平台（{platforms}），给你一个快速答复：",
-                introGeneric: "基于主流跨境支付平台官方 FAQ，给你一个快速答复：",
-                adTip: "投放建议：按广告渠道一渠道一卡，设置独立限额，并预留备份卡，降低风控导致的连续拒付风险。",
-                note: "提示：不同地区、账户等级和合规状态会影响可用功能与费率，下单前请以你账户后台的实时规则为准。",
+                fallback: "RichXPay 快速答复：\n1. 支持通过 TRC20/ERC20 充値 USDT/USDC，到账极速。\n2. 虚拟卡支持绑定 Apple Pay，可用于线上和线下消费。\n3. 支持 ChatGPT Plus、Midjourney、Netflix、Spotify、Meta/Google 广告等。\n4. 支付失败请依次排查：余额、限额设置、3DS 验证状态。",
+                introWithPlatform: "根据 RichXPay FAQ（{platforms}），快速答复如下：",
+                introGeneric: "根据 RichXPay 官方 FAQ，快速答复如下：",
+                adTip: "投放建议：按广告渠道一渠道一卡，设置独立限额，有效降低风控拒付风险。",
+                note: "提示：具体费率与功能以账户后台实时规则为准，使用前请确认最新说明。",
                 sourceFallback: "来源",
                 openAria: "打开 FAQ 窗口",
                 closeAria: "关闭 FAQ 窗口",
@@ -1099,22 +1095,21 @@
                 tooltip: "FAQ",
                 panelTitle: "跨境支付 FAQ",
                 panelSubtitle: "官方 FAQ 彙整 · 更新於 2026-03-04",
-                inputPlaceholder: "輸入問題：例如「虛擬卡能跑 Meta 廣告嗎？」",
+                inputPlaceholder: "輸入問題：例如「RichXPay 如何用 USDT 充值？」",
                 send: "送出",
-                typing: "正在整理官方 FAQ...",
-                welcome: "你好，我是跨境支付 FAQ 助手。\n我可以回答：虛擬卡/實體卡、跨境支付費用、廣告投放、支付失敗排查等問題。",
+                typing: "正在查詢 RichXPay FAQ...",
+                welcome: "你好，我是 RichXPay FAQ 助手。\n我可以回答：USDT/USDC 充值、Apple Pay 綁定、全球訂閱、費率說明、支付失敗排查等問題。",
                 quickQuestions: [
-                    "虛擬卡和實體卡怎麼選？",
-                    "做 Meta/Google 廣告投放，哪類卡更穩？",
-                    "跨境支付常見費用有哪些？",
+                    "如何用 USDT/USDC 充值？",
+                    "RichXPay 能綁定 Apple Pay 嗎？",
+                    "支援哪些全球訂閱服務？",
                     "支付失敗一般先排查什麼？"
                 ],
-                fallback: "先給你通用結論：\n1. 線上支付/廣告投放優先虛擬卡，按渠道拆卡並單獨設限額。\n2. 線下 POS 與 ATM 場景優先實體卡。\n3. 跨境支付先確認三類費用：交易費、匯兌費、提現/退款費。\n你也可以補充：目標平台（如 Wise/Payoneer）+ 場景（廣告/訂閱/供應商付款）。",
-                introWithPlatform: "按你提到的平台（{platforms}），給你一個快速答覆：",
-                introGeneric: "基於主流跨境支付平台官方 FAQ，給你一個快速答覆：",
-                adTip: "投放建議：按廣告渠道一渠道一卡，設定獨立限額，並保留備援卡，降低風控連續拒付風險。",
-                note: "提示：不同地區、帳戶等級與合規狀態會影響可用功能與費率，下單前請以帳戶後台規則為準。",
-                sourceFallback: "來源",
+                fallback: "RichXPay 快速答覆：\n1. 支援透過 TRC20/ERC20 充值 USDT/USDC，到帳極速。\n2. 虛擬卡支援綁定 Apple Pay，可用於線上和線下消費。\n3. 支援 ChatGPT Plus、Midjourney、Netflix、Spotify、Meta/Google 廣告等。\n4. 支付失敗請依序排查：餘額、限額設定、3DS 驗證狀態。",
+                introWithPlatform: "根據 RichXPay FAQ（{platforms}），快速答覆如下：",
+                introGeneric: "根據 RichXPay 官方 FAQ，快速答覆如下：",
+                adTip: "投放建議：按廣告渠道一渠道一卡，設定獨立限額，有效降低風控拒付風險。",
+                note: "提示：具體費率與功能以帳戶後台實時規則為準，使用前請確認最新說明。",
                 openAria: "打開 FAQ 視窗",
                 closeAria: "關閉 FAQ 視窗",
                 platformJoin: "、"
@@ -1124,21 +1119,21 @@
                 tooltip: "FAQ",
                 panelTitle: "FAQ Thanh Toan Xuyen Bien Gioi",
                 panelSubtitle: "Tong hop FAQ chinh thuc · Cap nhat 2026-03-04",
-                inputPlaceholder: "Nhap cau hoi: Vi du 'The ao co chay duoc quang cao Meta khong?'",
+                inputPlaceholder: "Nhap cau hoi: Vi du 'Nap USDT vao RichXPay nhu the nao?'",
                 send: "Gui",
-                typing: "Dang tong hop FAQ chinh thuc...",
-                welcome: "Xin chao, toi la tro ly FAQ thanh toan xuyen bien gioi.\nToi co the tra loi ve the ao/the vat ly, phi xuyen bien gioi, quang cao va xu ly giao dich bi tu choi.",
+                typing: "Dang tra cuu FAQ RichXPay...",
+                welcome: "Xin chao, toi la tro ly FAQ RichXPay.\nToi co the tra loi ve nap USDT/USDC, lien ket Apple Pay, dang ky dich vu quoc te, phi dich vu va xu ly giao dich bi tu choi.",
                 quickQuestions: [
-                    "Nen chon the ao hay the vat ly?",
-                    "Chay quang cao Meta/Google thi nen dung the nao?",
-                    "Thanh toan xuyen bien gioi thuong co nhung loai phi nao?",
-                    "Giao dich that bai thi nen kiem tra gi truoc?"
+                    "Nap tien bang USDT/USDC nhu the nao?",
+                    "RichXPay co lien ket duoc Apple Pay khong?",
+                    "Ho tro nhung dich vu dang ky quoc te nao?",
+                    "Giao dich that bai nen kiem tra gi truoc?"
                 ],
-                fallback: "Tra loi tong quat:\n1. Thanh toan online va quang cao thuong nen uu tien the ao.\n2. POS va ATM thuong nen uu tien the vat ly.\n3. Kiem tra 3 nhom phi truoc: phi giao dich, phi chuyen doi ty gia va phi rut/hoan tien.\nBan co the bo sung ten nen tang + tinh huong de nhan tra loi chinh xac hon.",
-                introWithPlatform: "Theo nen tang ban vua neu ({platforms}), day la cau tra loi nhanh:",
-                introGeneric: "Du a tren FAQ chinh thuc cua cac nen tang thanh toan xuyen bien gioi, day la cau tra loi nhanh:",
-                adTip: "Meo quang cao: dung mot the cho moi kenh, dat han muc rieng va luon co the du phong de giam gian doan do risk-control decline.",
-                note: "Luu y: tinh nang va phi phu thuoc khu vuc, cap tai khoan va trang thai tuan thu. Luon uu tien quy tac thuc te trong dashboard cua ban.",
+                fallback: "Tra loi nhanh RichXPay:\n1. Nap tien qua USDT/USDC tren TRC20/ERC20 — toc do chuyen khoan nhanh.\n2. The ao co the lien ket Apple Pay de mua sam online va tai cua hang.\n3. Ho tro ChatGPT Plus, Midjourney, Netflix, Spotify, quang cao Meta/Google va nhieu hon nua.\n4. Neu giao dich that bai, hay kiem tra so du, han muc the va xac minh 3DS.",
+                introWithPlatform: "Theo FAQ RichXPay ({platforms}), day la cau tra loi nhanh:",
+                introGeneric: "Theo FAQ chinh thuc RichXPay, day la cau tra loi nhanh:",
+                adTip: "Meo quang cao: dung mot the cho moi kenh, dat han muc rieng de giam gian doan do risk-control.",
+                note: "Luu y: tinh nang va phi theo quy tac thuc te trong dashboard cua ban.",
                 sourceFallback: "Nguon",
                 openAria: "Mo cua so FAQ",
                 closeAria: "Dong cua so FAQ",
@@ -1147,21 +1142,11 @@
         };
 
         const supportPlatformNames = {
-            wise: "Wise",
-            payoneer: "Payoneer",
-            airwallex: "Airwallex",
-            stripe: "Stripe",
-            worldfirst: "WorldFirst",
-            paypal: "PayPal"
+            richxpay: "RichXPay"
         };
 
         const supportPlatformAliases = {
-            wise: ["wise"],
-            payoneer: ["payoneer", "p卡", "派安盈", "派安盈卡"],
-            airwallex: ["airwallex", "空中云汇", "空中雲匯"],
-            stripe: ["stripe"],
-            worldfirst: ["worldfirst", "万里汇", "萬里匯"],
-            paypal: ["paypal", "贝宝", "貝寶", "pp"]
+            richxpay: ["richxpay", "richx", "rich x pay"]
         };
 
         const supportTopicAliases = {
@@ -1174,174 +1159,101 @@
 
         const supportKnowledgeBase = [
             {
-                id: "wise-virtual",
-                platform: "wise",
+                id: "richxpay-virtual-card",
+                platform: "richxpay",
                 topic: "virtual_card",
-                keywords: ["wise", "虚拟卡", "3张", "digital card", "wallet"],
-                answer: "Wise：虚拟卡可用于线上支付并可绑定数字钱包；个人账户通常可同时持有最多 3 张虚拟卡，适合按订阅/场景拆分管理。",
-                sources: [
-                    { label: "Wise Virtual Card", url: "https://wise.com/us/virtual-card" },
-                    { label: "Wise Card Fees", url: "https://wise.com/help/articles/2934551/what-are-the-wise-card-fees" }
-                ]
+                keywords: ["richxpay", "virtual card", "虚拟卡", "虛擬卡", "申请", "开卡", "the ao"],
+                answer: "RichXPay 虚拟卡可用于全球线上支付，支持绑定 Apple Pay、Google Pay 及主流电商平台；注册后即可快速开卡使用。",
+                sources: []
             },
             {
-                id: "wise-limits-fees",
-                platform: "wise",
+                id: "richxpay-topup",
+                platform: "richxpay",
                 topic: "cross_border_fee",
-                keywords: ["wise", "额度", "限额", "费用", "atm", "withdraw"],
-                answer: "Wise：支持按日/月设置支出限额；ATM 与换汇费用按地区和额度阶梯计费，超限后会有额外费用。",
-                sources: [
-                    { label: "Wise Spending Limits", url: "https://wise.com/help/articles/2899986/what-are-my-wise-card-spending-limits" },
-                    { label: "Wise Business Card Pricing", url: "https://wise.com/us/pricing/business/card-fees" }
-                ]
+                keywords: ["充值", "top-up", "usdt", "usdc", "trc20", "erc20", "加密货币", "数字货币", "nap tien"],
+                answer: "RichXPay 支持通过 TRC20/ERC20 网络直接充值 USDT/USDC，实时汇率结算，极速到账，全程低损耗。",
+                sources: []
             },
             {
-                id: "payoneer-cards",
-                platform: "payoneer",
+                id: "richxpay-applepay",
+                platform: "richxpay",
                 topic: "virtual_card",
-                keywords: ["payoneer", "虚拟卡", "实体卡", "linked", "卡限额"],
-                answer: "Payoneer：同一账户可配置实体卡和虚拟卡（含 linked cards）；支持日/月/总额度控制，卡资格与可开数量会受账户历史收款和地区合规限制影响。",
-                sources: [
-                    { label: "Payoneer Card FAQ", url: "https://payoneer.custhelp.com/app/answers/detail/a_id/18226/" }
-                ]
+                keywords: ["applepay", "apple pay", "绑定", "数字钱包", "digital wallet", "lien ket"],
+                answer: "RichXPay 虚拟卡支持绑定 Apple Pay，完成绑定后可在支持 Apple Pay 的线上和线下商家直接消费，操作便捷。",
+                sources: []
             },
             {
-                id: "payoneer-adspend",
-                platform: "payoneer",
+                id: "richxpay-subscriptions",
+                platform: "richxpay",
+                topic: "virtual_card",
+                keywords: ["订阅", "訂閱", "chatgpt", "midjourney", "netflix", "spotify", "claude", "会员", "dang ky"],
+                answer: "RichXPay 虚拟卡支持订阅 ChatGPT Plus、Midjourney、Claude Pro、Netflix、Spotify 等主流国际服务，一卡可管理多个订阅，拒付率极低。",
+                sources: []
+            },
+            {
+                id: "richxpay-adspend",
+                platform: "richxpay",
                 topic: "ad_spend",
-                keywords: ["广告", "投放", "facebook", "google", "marketing", "payoneer"],
-                answer: "Payoneer：官方资料明确支持用商业卡支付 Facebook/Google 等广告平台支出；可多卡管理并按需提升限额（以审核结果为准）。",
-                sources: [
-                    { label: "Payoneer Commercial Mastercard", url: "https://www.payoneer.com/resources/business/the-payoneer-commercial-mastercard-program-is-here/" }
-                ]
+                keywords: ["广告", "廣告", "投放", "meta", "facebook", "google", "ads", "quang cao"],
+                answer: "RichXPay 虚拟卡支持 Meta（Facebook）、Google 等广告平台充值投放；建议按渠道一卡一账户，设置独立限额，降低风控导致的拒付风险。",
+                sources: []
             },
             {
-                id: "airwallex-virtual-ad",
-                platform: "airwallex",
-                topic: "ad_spend",
-                keywords: ["airwallex", "虚拟卡", "广告", "single-use", "limit"],
-                answer: "Airwallex：可即时创建虚拟卡用于广告、SaaS、差旅等支出；支持单次虚拟卡、卡级限额和多成员共享，适合按渠道拆卡投放。",
-                sources: [
-                    { label: "Airwallex Virtual Cards", url: "https://www.airwallex.com/us/spend-management/cards/virtual-cards" },
-                    { label: "Airwallex Card Limits", url: "https://help.airwallex.com/hc/en-gb/articles/900001755706-How-do-I-set-card-limits-and-transaction-limits" }
-                ]
-            },
-            {
-                id: "airwallex-decline",
-                platform: "airwallex",
+                id: "richxpay-decline",
+                platform: "richxpay",
                 topic: "decline",
-                keywords: ["airwallex", "支付失败", "decline", "3ds", "余额不足"],
-                answer: "Airwallex：支付失败常见原因是超限额、钱包余额不足、实体卡未激活或 3DS 验证异常，排查顺序建议先看限额与余额，再看卡状态与验证记录。",
-                sources: [
-                    { label: "Airwallex Payment Failed", url: "https://help.airwallex.com/hc/en-gb/articles/900007068643-Why-did-my-card-payment-fail" }
-                ]
+                keywords: ["失败", "失敗", "拒付", "decline", "支付失败", "风控", "刷不过", "3ds", "that bai"],
+                answer: "RichXPay 支付失败常见原因：① 卡内余额不足；② 消费金额超出限额；③ 商家不支持预付卡；④ 3DS 验证未完成。建议依次检查余额、限额设置和卡状态，如仍有问题请联系客服。",
+                sources: []
             },
             {
-                id: "stripe-card-choice",
-                platform: "stripe",
-                topic: "virtual_card",
-                keywords: ["stripe", "虚拟卡", "实体卡", "issuing", "use case"],
-                answer: "Stripe Issuing：虚拟卡适合纯线上/B2B 场景，实体卡更适合线下 POS；两种卡可以并行发放，按团队场景混合使用。",
-                sources: [
-                    { label: "Stripe Choose Cards", url: "https://docs.stripe.com/issuing/choose-cards" }
-                ]
-            },
-            {
-                id: "stripe-limits",
-                platform: "stripe",
-                topic: "physical_card",
-                keywords: ["stripe", "限额", "physical", "shipping", "decline"],
-                answer: "Stripe Financial Accounts：单持卡人默认最多 2 张实体卡和 20 张虚拟卡；实体卡通常约 10 个工作日送达，超限/风控会触发拒付。",
-                sources: [
-                    { label: "Stripe Financial Accounts Cards", url: "https://docs.stripe.com/financial-accounts/cards" }
-                ]
-            },
-            {
-                id: "worldfirst-card",
-                platform: "worldfirst",
+                id: "richxpay-fees",
+                platform: "richxpay",
                 topic: "cross_border_fee",
-                keywords: ["worldfirst", "万里汇", "world card", "fx", "150", "广告"],
-                answer: "WorldFirst（万里汇）：World Card 支持 150+ 币种消费；在账户同币种余额支付 15 种主流币时可免卡片 FX 费用，并覆盖广告、订阅、物流等场景。",
-                sources: [
-                    { label: "WorldFirst World Card", url: "https://www.worldfirst.com/global/product/pay/world-card/" }
-                ]
+                keywords: ["费率", "費率", "手续费", "手續費", "费用", "費用", "收费", "汇率", "匯率", "fee", "phi"],
+                answer: "RichXPay 费率透明，充值按实时汇率结算，跨境消费费率极低；具体费率以账户后台公示为准，使用前建议在控制台查看最新费率说明。",
+                sources: []
             },
             {
-                id: "paypal-fees",
-                platform: "paypal",
-                topic: "cross_border_fee",
-                keywords: ["paypal", "跨境费", "国际交易", "merchant fees", "1.50%"],
-                answer: "PayPal（US 商户费率页）：国际收款通常是在国内商业交易费基础上再加国际附加费（页面展示为 1.50%），并叠加币种固定费。",
-                sources: [
-                    { label: "PayPal Merchant Fees", url: "https://www.paypal.com/us/business/paypal-business-fees" }
-                ]
-            },
-            {
-                id: "paypal-business-card",
-                platform: "paypal",
-                topic: "physical_card",
-                keywords: ["paypal", "business debit", "实体卡", "员工卡", "cashback"],
-                answer: "PayPal Business Debit Mastercard：支持实体卡及数字卡使用，最多可给员工配发附属卡（以产品规则为准），适合把 PayPal 余额直接用于日常企业支出。",
-                sources: [
-                    { label: "PayPal Business Debit Card", url: "https://www.paypal.com/us/business/financial-services/debit-card" }
-                ]
-            },
-            {
-                id: "multi-card-strategy",
-                platform: "multi",
+                id: "richxpay-limits",
+                platform: "richxpay",
                 topic: "virtual_card",
-                keywords: ["怎么选", "虚拟卡", "实体卡", "对比", "建议", "strategy"],
-                answer: "通用建议：线上订阅/广告投放优先虚拟卡（可拆卡、可设限额、可快速冻结）；线下差旅/门店/ATM 取现优先实体卡。最佳实践是二者并行。",
-                sources: [
-                    { label: "Stripe Choose Cards", url: "https://docs.stripe.com/issuing/choose-cards" },
-                    { label: "Airwallex Virtual Cards", url: "https://www.airwallex.com/us/spend-management/cards/virtual-cards" },
-                    { label: "Payoneer Card FAQ", url: "https://payoneer.custhelp.com/app/answers/detail/a_id/18226/" }
-                ]
-            }
+                keywords: ["限额", "限額", "额度", "limit", "单笔", "日限", "月限", "han muc"],
+                answer: "RichXPay 支持灵活设置单笔、日限、月限等消费额度；同一账户可开多张虚拟卡并分别设置限额，适合按场景和渠道拆分管理。",
+                sources: []
+            },
         ];
 
         const supportAnswerI18n = {
             en: {
-                "wise-virtual": "Wise: virtual cards can be used for online checkout and digital wallets; personal users can usually keep up to 3 virtual cards for scenario-based management.",
-                "wise-limits-fees": "Wise: daily/monthly card limits can be configured; ATM and FX charges depend on region and tiers, with extra costs after free allowance.",
-                "payoneer-cards": "Payoneer: one account can hold both physical and virtual cards (including linked cards); daily/monthly/total limits are available, while eligibility depends on account history and regional compliance.",
-                "payoneer-adspend": "Payoneer: official materials indicate business cards can pay for ad spend on platforms such as Facebook and Google; limit increases are subject to review.",
-                "airwallex-virtual-ad": "Airwallex: virtual cards can be issued instantly for ads, SaaS, and travel; single-use cards, card-level limits, and team sharing are supported.",
-                "airwallex-decline": "Airwallex: common decline reasons include limit reached, insufficient wallet balance, inactive physical card, or 3DS issues; check limits and balance first.",
-                "stripe-card-choice": "Stripe Issuing: virtual cards suit online and B2B spend, while physical cards are better for in-person POS. A mixed setup is supported.",
-                "stripe-limits": "Stripe Financial Accounts: by default, one cardholder can have up to 2 physical cards and 20 virtual cards; physical delivery usually takes around 10 business days.",
-                "worldfirst-card": "WorldFirst: World Card supports spending in 150+ currencies; card FX can be waived on selected major currencies when paid from same-currency balances.",
-                "paypal-fees": "PayPal (US merchant fee page): international transactions generally add an international surcharge (shown as 1.50%) on top of domestic commercial rates, plus fixed currency fees.",
-                "paypal-business-card": "PayPal Business Debit Mastercard: supports both physical and digital card usage, suitable for spending directly from PayPal balances.",
-                "multi-card-strategy": "General strategy: use virtual cards for online subscriptions and ad spend, and physical cards for POS/travel/ATM. Running both in parallel is often best."
+                "richxpay-virtual-card": "RichXPay virtual cards can be used for global online payments, including binding to Apple Pay, Google Pay, and major e-commerce platforms. Quick to apply, ready to use right after registration.",
+                "richxpay-topup": "RichXPay supports direct top-up via USDT/USDC on TRC20/ERC20 networks. Real-time exchange rate settlement with near-instant arrival and minimal slippage.",
+                "richxpay-applepay": "RichXPay virtual cards can be linked to Apple Pay, enabling convenient payments at any Apple Pay-supported merchant, both online and in-store.",
+                "richxpay-subscriptions": "RichXPay virtual cards support ChatGPT Plus, Midjourney, Claude Pro, Netflix, Spotify, and other major international subscriptions — all manageable from one card with very low decline rates.",
+                "richxpay-adspend": "RichXPay virtual cards work with Meta (Facebook), Google, and other ad platforms. Use one card per channel with independent limits to reduce risk-control declines.",
+                "richxpay-decline": "Common reasons for RichXPay payment failures: 1. Insufficient balance; 2. Amount exceeds card limit; 3. Merchant does not accept prepaid cards; 4. 3DS verification not completed. Check balance, limits, and card status in order.",
+                "richxpay-fees": "RichXPay uses transparent fee logic — top-ups are settled at real-time exchange rates with very low cross-border transaction fees. Check the latest rates in your account dashboard.",
+                "richxpay-limits": "RichXPay supports flexible per-transaction, daily, and monthly spending limits. Multiple virtual cards can be opened under one account, each with independent limits."
             },
             'zh-TW': {
-                "wise-virtual": "Wise：虛擬卡可用於線上支付並可綁定數位錢包；個人帳戶通常可同時持有最多 3 張虛擬卡，適合按場景拆分管理。",
-                "wise-limits-fees": "Wise：可設定日/月支出限額；ATM 與換匯費用按地區與額度階梯計費，超過免費額度後會有額外費用。",
-                "payoneer-cards": "Payoneer：同一帳戶可配置實體卡與虛擬卡（含 linked cards）；支援日/月/總額度控制，資格會受收款歷史與地區合規影響。",
-                "payoneer-adspend": "Payoneer：官方資料顯示商業卡可支付 Facebook/Google 等廣告平台支出；限額提升需以審核結果為準。",
-                "airwallex-virtual-ad": "Airwallex：可即時建立虛擬卡用於廣告、SaaS、差旅支出；支援一次性虛擬卡、卡級限額與多成員共享。",
-                "airwallex-decline": "Airwallex：支付失敗常見原因包含超限、錢包餘額不足、實體卡未啟用或 3DS 異常；建議先檢查限額與餘額。",
-                "stripe-card-choice": "Stripe Issuing：虛擬卡更適合純線上/B2B 支出，實體卡更適合線下 POS；兩種卡可並行發放。",
-                "stripe-limits": "Stripe Financial Accounts：單持卡人預設最多 2 張實體卡與 20 張虛擬卡；實體卡配送通常約 10 個工作日。",
-                "worldfirst-card": "WorldFirst（萬里匯）：World Card 支援 150+ 幣種消費；在特定主流幣種且同幣種餘額支付時，卡片 FX 費可降低或免除。",
-                "paypal-fees": "PayPal（美國商戶費率頁）：國際交易通常是在國內商業交易費基礎上加收國際附加費（頁面顯示 1.50%），並疊加固定幣種費。",
-                "paypal-business-card": "PayPal Business Debit Mastercard：支援實體卡與數位卡使用，適合直接使用 PayPal 餘額做企業日常支出。",
-                "multi-card-strategy": "通用策略：線上訂閱/廣告投放優先虛擬卡，POS/差旅/ATM 優先實體卡；兩者並行通常更穩定。"
+                "richxpay-virtual-card": "RichXPay 虛擬卡可用於全球線上支付，支援綁定 Apple Pay、Google Pay 及主流電商平台；申請流程簡便，註冊後即可快速開卡使用。",
+                "richxpay-topup": "RichXPay 支援透過 TRC20/ERC20 網路直接充值 USDT/USDC，即時匯率結算，到帳速度極快，損耗極低。",
+                "richxpay-applepay": "RichXPay 虛擬卡支援綁定 Apple Pay，完成綁定後可在支援 Apple Pay 的線上及實體商家直接消費。",
+                "richxpay-subscriptions": "RichXPay 虛擬卡支援訂閱 ChatGPT Plus、Midjourney、Claude Pro、Netflix、Spotify 等主流國際服務，一卡管理多個訂閱，拒付率極低。",
+                "richxpay-adspend": "RichXPay 虛擬卡支援 Meta（Facebook）、Google 等廣告平台充值投放；建議按渠道一卡一帳號，設定獨立限額，降低風控拒付風險。",
+                "richxpay-decline": "RichXPay 支付失敗常見原因：1. 餘額不足；2. 金額超出限額；3. 商家不接受預付卡；4. 3DS 驗證未完成。請依序檢查餘額、限額與卡片狀態。",
+                "richxpay-fees": "RichXPay 費率透明，充值按即時匯率結算，跨境消費費率極低；具體費率以帳戶後台公示為準。",
+                "richxpay-limits": "RichXPay 支援彈性設定單筆、日限、月限等消費額度；同一帳戶可開立多張虛擬卡並各自設置限額。"
             },
             vi: {
-                "wise-virtual": "Wise: the ao dung cho thanh toan online va lien ket vi so; tai khoan ca nhan thuong co the giu toi da 3 the ao.",
-                "wise-limits-fees": "Wise: co the dat han muc ngay/thang; phi ATM va chuyen doi ty gia tinh theo khu vuc va bac han muc.",
-                "payoneer-cards": "Payoneer: mot tai khoan co the dung ca the vat ly va the ao; han muc ngay/thang/tong co san, dieu kien phu thuoc lich su tai khoan va quy dinh khu vuc.",
-                "payoneer-adspend": "Payoneer: tai lieu chinh thuc cho thay the doanh nghiep co the thanh toan quang cao Facebook/Google; tang han muc can duoc phe duyet.",
-                "airwallex-virtual-ad": "Airwallex: co the tao the ao ngay lap tuc cho quang cao, SaaS va cong tac; ho tro the dung mot lan, han muc theo the va chia se cho team.",
-                "airwallex-decline": "Airwallex: giao dich that bai thuong do vuot han muc, thieu so du, the vat ly chua kich hoat, hoac loi 3DS; nen kiem tra han muc va so du truoc.",
-                "stripe-card-choice": "Stripe Issuing: the ao hop voi chi tieu online/B2B, con the vat ly hop voi POS tai cua hang; co the trien khai song song.",
-                "stripe-limits": "Stripe Financial Accounts: mac dinh moi chu the co toi da 2 the vat ly va 20 the ao; giao the vat ly thuong mat khoang 10 ngay lam viec.",
-                "worldfirst-card": "WorldFirst: World Card ho tro chi tieu hon 150 dong tien; phi FX co the duoc giam/mien trong mot so dieu kien so du cung dong tien.",
-                "paypal-fees": "PayPal (trang phi cho doanh nghiep tai My): giao dich quoc te thuong cong them phu phi quoc te (hien thi 1.50%) tren muc phi noi dia, kem phi co dinh theo dong tien.",
-                "paypal-business-card": "PayPal Business Debit Mastercard: ho tro dung ca the vat ly va the so, phu hop de chi tieu truc tiep tu so du PayPal.",
-                "multi-card-strategy": "Chien luoc chung: uu tien the ao cho online/subscription/quang cao; uu tien the vat ly cho POS/cong tac/ATM; ket hop ca hai la on dinh nhat."
+                "richxpay-virtual-card": "The ao RichXPay co the dung de thanh toan online toan cau, lien ket Apple Pay, Google Pay; dang ky nhanh, su dung ngay sau khi kich hoat.",
+                "richxpay-topup": "RichXPay ho tro nap tien truc tiep bang USDT/USDC qua mang TRC20/ERC20, quyet toan ty gia theo thoi gian thuc, toc do nhanh, mat mat toi thieu.",
+                "richxpay-applepay": "The ao RichXPay co the lien ket Apple Pay, cho phep thanh toan tai bat ky diem ban chap nhan Apple Pay ca online lan tai cua hang.",
+                "richxpay-subscriptions": "The ao RichXPay ho tro dang ky ChatGPT Plus, Midjourney, Claude Pro, Netflix, Spotify va cac dich vu quoc te lon; quan ly nhieu dang ky bang mot the, ti le bi tu choi rat thap.",
+                "richxpay-adspend": "The ao RichXPay ho tro chay quang cao tren Meta (Facebook), Google; nen dung mot the cho moi kenh, dat han muc rieng de giam nguy co bi tu choi.",
+                "richxpay-decline": "Ly do thuong gap khi RichXPay that bai: 1. So du khong du; 2. So tien vuot han muc; 3. Diem ban khong chap nhan the tra truoc; 4. Chua xac minh 3DS. Hay kiem tra theo thu tu tren.",
+                "richxpay-fees": "RichXPay co cau phi minh bach, nap tien quyet toan theo ty gia thoi gian thuc, phi giao dich xuyen bien gioi rat thap; kiem tra phi moi nhat tren dashboard.",
+                "richxpay-limits": "RichXPay ho tro thiet lap han muc linh hoat theo tung giao dich, ngay va thang; mot tai khoan co the mo nhieu the ao voi han muc rieng."
             }
         };
 
