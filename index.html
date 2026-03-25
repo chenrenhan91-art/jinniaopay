@@ -42,11 +42,15 @@
     {
       "@context": "https://schema.org",
       "@type": "FinancialService",
+            "@id": "https://www.dajinniao.com/#financialservice",
       "name": "RICHXPAY",
       "alternateName": ["大金鸟支付", "RichXPay", "RICHXPAY支付"],
       "url": "https://www.dajinniao.com/",
       "logo": "https://www.dajinniao.com/logo-main.png",
       "description": "RICHXPAY 提供虚拟信用卡服务，支持 USDT/USDC 充值、Apple Pay 绑定及全球订阅服务，适合跨境支付场景。极低费率，秒级到账。",
+            "inLanguage": ["zh-CN", "zh-TW", "en", "vi"],
+            "isPartOf": { "@id": "https://www.dajinniao.com/#website" },
+            "provider": { "@id": "https://www.dajinniao.com/#organization" },
       "serviceType": "Virtual Credit Card",
       "areaServed": { "@type": "Place", "name": "Worldwide" },
       "hasOfferCatalog": {
@@ -123,6 +127,7 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": "https://www.dajinniao.com/#organization",
             "name": "RICHXPAY",
             "alternateName": ["大金鸟支付", "RichXPay", "RICHXPAY支付"],
             "url": "https://www.dajinniao.com/",
@@ -148,8 +153,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+            "@id": "https://www.dajinniao.com/#website",
       "name": "RICHXPAY",
       "url": "https://www.dajinniao.com/",
+            "publisher": { "@id": "https://www.dajinniao.com/#organization" },
       "inLanguage": ["zh-CN", "zh-TW", "en", "vi"],
       "potentialAction": {
         "@type": "SearchAction",
@@ -164,6 +171,11 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+            "@id": "https://www.dajinniao.com/#faqpage",
+            "mainEntityOfPage": "https://www.dajinniao.com/",
+            "inLanguage": "zh-CN",
+            "dateModified": "2026-03-25",
+            "isPartOf": { "@id": "https://www.dajinniao.com/#website" },
       "mainEntity": [
         {
           "@type": "Question",
@@ -230,8 +242,11 @@
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
+            "@id": "https://www.dajinniao.com/#howto-onboarding",
       "name": "如何使用 RICHXPAY 虚拟信用卡开始全球支付",
       "description": "三步轻松开卡并开始跨境消费：注册认证 → USDT/USDC 充值 → 绑定支付平台消费",
+            "inLanguage": "zh-CN",
+            "isPartOf": { "@id": "https://www.dajinniao.com/#website" },
       "totalTime": "PT5M",
       "step": [
         {
