@@ -696,14 +696,6 @@
             overflow: hidden;
             pointer-events: none;
         }
-        .hero-video-el {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-        }
         .hero-light-beams {
             position: absolute;
             inset: 0;
@@ -2109,13 +2101,20 @@
                             delay: index * 0.06
                         });
                     });
+
+                    gsap.set('.testimonial-card', { opacity: 1, y: 0 });
                     gsap.utils.toArray('.testimonial-card').forEach((item, index) => {
-                        gsap.from(item, {
-                            scrollTrigger: { trigger: item, start: "top 92%" },
+                        gsap.fromTo(item, {
                             opacity: 0,
-                            y: 32,
+                            y: 32
+                        }, {
+                            scrollTrigger: { trigger: item, start: "top 92%" },
+                            opacity: 1,
+                            y: 0,
                             duration: 0.7,
-                            delay: index * 0.10
+                            delay: index * 0.10,
+                            immediateRender: false,
+                            overwrite: 'auto'
                         });
                     });
                 }
