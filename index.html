@@ -817,10 +817,15 @@
         #features,
         #timeline,
         #trust,
-        #testimonials,
         #footer {
             content-visibility: auto;
             contain-intrinsic-size: 1px 900px;
+        }
+
+        /* Keep testimonials always render to avoid browser paint-skip issues */
+        #testimonials {
+            content-visibility: visible;
+            contain-intrinsic-size: auto;
         }
 
         /* ===== SHADER HERO CANVAS ===== */
